@@ -248,20 +248,22 @@
     </div>
   </header>
 
-  <!-- Shared nav (matches About/Services) -->
-  <nav>
+  <!-- Header / Nav -->
+  <header>
     <div class="nav">
-      <a class="brand" href="index.html" aria-label="If & When Events">I&amp;W</a>
-      <button class="hamburger" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle menu">☰</button>
-      <ul id="primary-nav" class="nav-links">
-        <li><a href="index.html" aria-current="page">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <a class="brand" href="index.html">If &amp; When Events</a>
+
+      <button class="hamburger" id="navToggle" aria-label="Open menu">☰</button>
+
+      <nav class="nav-links" id="navMenu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <!-- Hero with tagline -->
   <section class="hero">
