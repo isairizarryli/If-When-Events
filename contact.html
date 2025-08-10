@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>If & When Events — Portfolio</title>
+  <title>If & When Events — Contact</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,7 +40,6 @@
       background: linear-gradient(to bottom, var(--cream), var(--taupe));
     }
     img{max-width:100%;height:auto;display:block}
-    ul{list-style:none;padding:0;margin:0}
     a{text-decoration:none}
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-2)}
     h1{font-size:clamp(2.2rem,5.6vw,3.2rem)}
@@ -99,7 +98,6 @@
     .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
     /* Active link: color only, no underline */
     .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
-
     @media (max-width:900px){
       .hamburger{ display:block; }
       .nav-links{
@@ -107,7 +105,7 @@
         inset:0 0 0 auto;
         width:75%;
         max-width:300px;
-        background:#4A4A4AE6; /* charcoal w/ transparency */
+        background:#4A4A4AE6;
         backdrop-filter:blur(6px);
         flex-direction:column;
         align-items:flex-start;
@@ -121,7 +119,7 @@
       .nav-links a{ border-bottom:0; font-size:1.1rem; }
     }
 
-    /* ===== Page Intro ===== */
+    /* ===== Hero ===== */
     .hero{
       background:
         radial-gradient(1000px 500px at 100% -10%, rgba(203,178,106,.10), transparent 60%),
@@ -133,131 +131,68 @@
     .hero h1{font-family:var(--font-heading); color:var(--forest); margin-bottom:.35rem}
     .hero p{max-width:820px;margin:0 auto;color:var(--forest)}
 
-    /* Buttons */
-    .btn{
-      display:inline-block; background:var(--gold); color:var(--forest);
-      padding:.7rem 1.15rem; border-radius:8px; font-weight:600; border:none;
-      text-decoration:none; transition: background .2s,color .2s, box-shadow .2s
-    }
-    .btn:hover{ background:var(--silver); color:var(--charcoal) }
-
-    /* ===== Filters ===== */
-    .filters{
-      padding: var(--s-3) 0 var(--s-2);
-    }
-    .chipbar{
-      display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center;
-    }
-    .chip{
-      border:2px solid var(--gold);
-      background:transparent;
-      color:var(--forest);
-      padding:.4rem .9rem;
-      border-radius:999px;
-      cursor:pointer;
-      font-weight:600;
-      transition: background .2s, color .2s, border-color .2s, transform .1s;
-    }
-    .chip:hover{ background:var(--silver); color:var(--charcoal); border-color:var(--silver); }
-    .chip[aria-pressed="true"]{ background:var(--gold); color:var(--forest); }
-    
-    /* ===== Gallery Grid ===== */
-    .gallery{
-      padding: var(--s-3) 0 var(--s-5);
+    /* ===== Contact Layout ===== */
+    .contact{
+      padding: var(--s-5) 0;
     }
     .grid{
       display:grid;
-      grid-template-columns: repeat(1, minmax(0,1fr));
-      gap:var(--s-3);
+      gap: var(--s-3);
+      grid-template-columns: 1fr;
     }
-    @media (min-width:720px){ .grid{ grid-template-columns: repeat(2, minmax(0,1fr)); } }
-    @media (min-width:1024px){ .grid{ grid-template-columns: repeat(3, minmax(0,1fr)); } }
+    @media(min-width:900px){
+      .grid{ grid-template-columns: 1fr 1.2fr; }
+    }
 
     .card{
-      background:var(--cream);
+      background:#ffffff;
       border:1px solid rgba(0,0,0,.06);
       border-radius:var(--radius);
-      overflow:hidden;
       box-shadow:var(--shadow-1);
-      transition: transform .2s, box-shadow .2s;
+      padding: var(--s-3);
     }
-    .card:hover{ transform: translateY(-3px); box-shadow:var(--shadow-2); }
-    .card figure{ display:flex; flex-direction:column; height:100%; }
-    .thumb{
-      aspect-ratio:4/3;
-      background:#f2f2f2;
-      overflow:hidden;
-    }
-    .thumb img{
-      width:100%; height:100%; object-fit:cover;
-      display:block;
-    }
-    figcaption{
-      padding: .85rem 1rem;
-      display:flex; justify-content:space-between; align-items:center; gap:.75rem;
-    }
-    .meta h3{
+
+    .card h2{
       font-family:var(--font-heading);
       color:var(--forest);
-      font-size:1.1rem;
-      line-height:1.2;
+      margin-bottom:.6rem;
     }
-    .meta p{ font-size:.95rem; opacity:.9; }
-    .pill{
-      background:var(--olive);
-      color:var(--cream);
-      font-size:.85rem;
-      border-radius:999px;
-      padding:.25rem .6rem;
-      white-space:nowrap;
-    }
+    .muted{ color:#5f5f5f; }
 
-    /* Hide helper for filter */
-    .is-hidden{ display:none !important; }
+    /* Info list */
+    .info-list{margin-top:.5rem; display:grid; gap:.5rem}
+    .info-list a{ color:var(--forest); text-decoration:underline; }
 
-    /* ===== Lightbox ===== */
-    .lightbox{
-      position:fixed; inset:0; display:none;
-      align-items:center; justify-content:center;
-      background: rgba(0,0,0,.6);
-      z-index:2000;
-      padding:1rem;
-    }
-    .lightbox.open{ display:flex; }
-    .lightbox-inner{
+    /* Form */
+    form{ display:grid; gap:1rem; }
+    .row{ display:grid; gap:1rem; grid-template-columns:1fr; }
+    @media(min-width:700px){ .row{ grid-template-columns:1fr 1fr; } }
+    label{ font-weight:600; color:var(--forest); display:block; margin-bottom:.25rem; }
+    input, select, textarea{
+      width:100%;
       background:#fff;
-      border-radius:12px;
-      max-width:min(1000px, 92vw);
-      max-height:90vh;
-      overflow:hidden;
-      box-shadow:var(--shadow-2);
-      display:flex; flex-direction:column;
+      border:1px solid #dcdcdc;
+      border-radius:10px;
+      padding:.75rem .9rem;
+      font:inherit;
+      transition:border-color .2s, box-shadow .2s;
     }
-    .lightbox img{
-      max-width:100%;
-      height:auto;
-      object-fit:contain;
-      background:#00000008;
-    }
-    .lightbox-caption{
-      padding:.75rem 1rem;
-      border-top:1px solid #e9e9e9;
-      display:flex; justify-content:space-between; align-items:center; gap:1rem;
-    }
-    .lb-title{font-weight:600;color:var(--forest)}
-    .lb-close{
-      background:transparent; border:0; font-size:1.5rem; cursor:pointer;
-      padding:.25rem .5rem;
+    textarea{ min-height:140px; resize:vertical; }
+    input:focus, select:focus, textarea:focus{
+      outline:none; border-color:var(--eucalyptus);
+      box-shadow:0 0 0 3px rgba(188,205,179,.35);
     }
 
-    /* CTA + Footer */
-    .cta{
-      background: var(--gold);
-      color: var(--forest);
-      text-align:center;
-      padding: var(--s-5) var(--s-2);
+    .btn{
+      display:inline-block; background:var(--gold); color:var(--forest);
+      padding:.85rem 1.25rem; border-radius:8px; font-weight:600; border:none;
+      text-decoration:none; transition: background .2s,color .2s, box-shadow .2s; cursor:pointer;
     }
-    .cta h2{font-family:var(--font-heading);margin-bottom:.6rem}
+    .btn:hover{ background:var(--silver); color:var(--charcoal) }
+
+    .small{ font-size:.9rem; color:#6b6b6b; }
+
+    /* Footer */
     footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem;margin-top:0}
   </style>
 </head>
@@ -279,141 +214,113 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
-        <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="contact.html" aria-current="page">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Intro -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Favorites from Our Portfolio</h1>
-      <p>Weddings, celebrations, and corporate moments—curated with balance, creativity, and care. Tap a photo to view larger.</p>
+      <h1>Let’s Connect</h1>
+      <p>Tell us about your celebration—we’ll reply within 1–2 business days.</p>
     </div>
   </section>
 
-  <!-- Filters -->
-  <section class="filters">
+  <!-- Contact -->
+  <section class="contact">
     <div class="container">
-      <div class="chipbar" role="toolbar" aria-label="Filter portfolio">
-        <button class="chip" data-filter="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="wedding" aria-pressed="false">Weddings</button>
-        <button class="chip" data-filter="celebration" aria-pressed="false">Celebrations</button>
-        <button class="chip" data-filter="corporate" aria-pressed="false">Corporate</button>
-      </div>
-    </div>
-  </section>
+      <div class="grid">
+        <!-- Info -->
+        <aside class="card">
+          <h2>Contact Information</h2>
+          <p class="muted">Prefer email or a quick call? We’re happy either way.</p>
+          <div class="info-list" style="margin-top:1rem">
+            <div><strong>Email:</strong> <a href="mailto:ifwhen.events@gmail.com">ifwhen.events@gmail.com</a></div>
+            <div><strong>Phone:</strong> <a href="tel:14076307505">407-630-7505</a></div>
+            <div><strong>Location:</strong> Orlando, FL</div>
+          </div>
+          <hr style="margin:1rem 0; border:0; border-top:1px solid #e6e6e6">
+          <p class="small">Business hours: Mon–Fri, 9am–5pm ET<br>We do our best to respond within 24–48 hours.</p>
+        </aside>
 
-  <!-- Gallery -->
-  <section class="gallery">
-    <div class="container">
-      <div class="grid" id="galleryGrid">
-        <!-- Wedding -->
-        <article class="card" data-cat="wedding">
-          <figure data-large="images/portfolio/wedding-1.jpg" data-title="Garden Ceremony">
-            <div class="thumb">
-              <img src="images/portfolio/wedding-1.jpg" alt="Outdoor garden ceremony aisle with floral accents" loading="lazy">
-            </div>
-            <figcaption>
-              <div class="meta">
-                <h3>Garden Ceremony</h3>
-                <p>Romantic greens &amp; gold accents</p>
+        <!-- Form -->
+        <div class="card">
+          <h2>Send Us a Message</h2>
+          <!-- Using FormSubmit to send to your Gmail without a backend -->
+          <form action="https://formsubmit.co/ifwhen.events@gmail.com" method="POST">
+            <!-- FormSubmit options -->
+            <input type="hidden" name="_subject" value="New inquiry from If & When Events website">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="_honey" style="display:none"> <!-- honeypot -->
+            <input type="hidden" name="_captcha" value="false">
+            <!-- If you make a thank-you page, uncomment the next line and set its URL -->
+            <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
+
+            <div class="row">
+              <div>
+                <label for="name">Your Name *</label>
+                <input id="name" name="name" type="text" required autocomplete="name" placeholder="First & Last Name">
               </div>
-              <span class="pill">Wedding</span>
-            </figcaption>
-          </figure>
-        </article>
-
-        <article class="card" data-cat="wedding">
-          <figure data-large="images/portfolio/wedding-2.jpg" data-title="Elegant Tablescape">
-            <div class="thumb">
-              <img src="images/portfolio/wedding-2.jpg" alt="Table setting with candles and greenery" loading="lazy">
-            </div>
-            <figcaption>
-              <div class="meta">
-                <h3>Elegant Tablescape</h3>
-                <p>Candles, greenery, layered textures</p>
+              <div>
+                <label for="email">Email *</label>
+                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
               </div>
-              <span class="pill">Wedding</span>
-            </figcaption>
-          </figure>
-        </article>
-
-        <!-- Celebrations -->
-        <article class="card" data-cat="celebration">
-          <figure data-large="images/portfolio/celebration-1.jpg" data-title="Baby Shower Bloom">
-            <div class="thumb">
-              <img src="images/portfolio/celebration-1.jpg" alt="Baby shower dessert table with pastel details" loading="lazy">
             </div>
-            <figcaption>
-              <div class="meta">
-                <h3>Baby Shower Bloom</h3>
-                <p>Sweet pastels &amp; playful details</p>
-              </div>
-              <span class="pill">Celebration</span>
-            </figcaption>
-          </figure>
-        </article>
 
-        <article class="card" data-cat="celebration">
-          <figure data-large="images/portfolio/celebration-2.jpg" data-title="Anniversary Soirée">
-            <div class="thumb">
-              <img src="images/portfolio/celebration-2.jpg" alt="Intimate anniversary celebration table decor" loading="lazy">
+            <div class="row">
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555">
+              </div>
+              <div>
+                <label for="eventType">Event Type *</label>
+                <select id="eventType" name="eventType" required>
+                  <option value="">Select an event</option>
+                  <option>Wedding</option>
+                  <option>Shower</option>
+                  <option>Birthday / Anniversary</option>
+                  <option>Corporate / Launch</option>
+                  <option>Other</option>
+                </select>
+              </div>
             </div>
-            <figcaption>
-              <div class="meta">
-                <h3>Anniversary Soirée</h3>
-                <p>Intimate, warm, and personal</p>
-              </div>
-              <span class="pill">Celebration</span>
-            </figcaption>
-          </figure>
-        </article>
 
-        <!-- Corporate -->
-        <article class="card" data-cat="corporate">
-          <figure data-large="images/portfolio/corporate-1.jpg" data-title="Brand Launch">
-            <div class="thumb">
-              <img src="images/portfolio/corporate-1.jpg" alt="Modern event space for brand activation" loading="lazy">
+            <div class="row">
+              <div>
+                <label for="date">Event Date</label>
+                <input id="date" name="date" type="date">
+              </div>
+              <div>
+                <label for="guests">Guest Count (approx.)</label>
+                <input id="guests" name="guests" type="number" min="1" placeholder="e.g., 120">
+              </div>
             </div>
-            <figcaption>
-              <div class="meta">
-                <h3>Brand Launch</h3>
-                <p>Clean lines &amp; on-brand details</p>
-              </div>
-              <span class="pill">Corporate</span>
-            </figcaption>
-          </figure>
-        </article>
 
-        <article class="card" data-cat="corporate">
-          <figure data-large="images/portfolio/corporate-2.jpg" data-title="Team Summit">
-            <div class="thumb">
-              <img src="images/portfolio/corporate-2.jpg" alt="Conference tables with branded materials" loading="lazy">
+            <div>
+              <label for="budget">Estimated Budget</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option>$5k–$10k</option>
+                <option>$10k–$20k</option>
+                <option>$20k–$40k</option>
+                <option>$40k+</option>
+              </select>
             </div>
-            <figcaption>
-              <div class="meta">
-                <h3>Team Summit</h3>
-                <p>Seamless logistics &amp; flow</p>
-              </div>
-              <span class="pill">Corporate</span>
-            </figcaption>
-          </figure>
-        </article>
 
-        <!-- Add as many more as you like using the same pattern -->
-      </div>
-    </div>
-  </section>
+            <div>
+              <label for="message">Tell us about your vision *</label>
+              <textarea id="message" name="message" required placeholder="What are you celebrating? What matters most to you?"></textarea>
+            </div>
 
-  <!-- CTA -->
-  <section class="cta">
-    <div class="container">
-      <h2>Want to see how this could look for you?</h2>
-      <p>Tell us your vision—we’ll bring it to life.</p>
-      <div style="margin-top:1rem">
-        <a href="contact.html" class="btn">Get in Touch</a>
+            <div>
+              <button class="btn" type="submit">Send Message</button>
+            </div>
+
+            <p class="small">By submitting, you agree we may contact you about your inquiry. See our <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a>.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -427,19 +334,8 @@
     </nav>
   </footer>
 
-  <!-- Lightbox -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image preview">
-    <div class="lightbox-inner">
-      <img id="lbImg" alt="">
-      <div class="lightbox-caption">
-        <div class="lb-title" id="lbTitle"></div>
-        <button class="lb-close" aria-label="Close preview" id="lbClose">×</button>
-      </div>
-    </div>
-  </div>
-
   <script>
-    // Mobile nav toggle (shared)
+    // Mobile nav toggle (same behavior as other pages)
     const toggle = document.querySelector('.hamburger');
     const links = document.querySelector('.nav-links');
     if(toggle && links){
@@ -448,51 +344,6 @@
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     }
-
-    // Filters
-    const chips = document.querySelectorAll('.chip');
-    const cards = document.querySelectorAll('.card');
-    chips.forEach(chip=>{
-      chip.addEventListener('click', ()=>{
-        chips.forEach(c => c.setAttribute('aria-pressed','false'));
-        chip.setAttribute('aria-pressed','true');
-        const filter = chip.dataset.filter;
-        cards.forEach(card=>{
-          const cat = card.getAttribute('data-cat');
-          if(filter === 'all' || cat === filter){
-            card.classList.remove('is-hidden');
-          } else {
-            card.classList.add('is-hidden');
-          }
-        });
-      });
-    });
-
-    // Lightbox
-    const lb = document.getElementById('lightbox');
-    const lbImg = document.getElementById('lbImg');
-    const lbTitle = document.getElementById('lbTitle');
-    const lbClose = document.getElementById('lbClose');
-
-    document.getElementById('galleryGrid').addEventListener('click', (e)=>{
-      const fig = e.target.closest('figure');
-      if(!fig) return;
-      const large = fig.dataset.large || fig.querySelector('img')?.src;
-      const title = fig.dataset.title || fig.querySelector('h3')?.textContent || 'Portfolio image';
-      lbImg.src = large;
-      lbImg.alt = title;
-      lbTitle.textContent = title;
-      lb.classList.add('open');
-    });
-
-    function closeLB(){
-      lb.classList.remove('open');
-      lbImg.src = '';
-      lbTitle.textContent = '';
-    }
-    lbClose.addEventListener('click', closeLB);
-    lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
-    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLB(); });
   </script>
 </body>
 </html>
