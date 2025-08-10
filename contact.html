@@ -3,23 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>If & When Events — Contact</title>
+  <title>Contact — If & When Events</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <meta name="description" content="Contact If & When Events — weddings, showers, milestones, and launches.">
   <style>
     :root{
-      --forest:#2D4C3A;
-      --silver:#D9D9D9;
-      --gold:#CBB26A;
-      --charcoal:#4A4A4A;
-      --cream:#EBEFE4;
-      --olive:#4A5A48;
-      --eucalyptus:#BCCDB3;
-      --taupe:#D2C6B2;
+      --forest:#2D4C3A; --silver:#D9D9D9; --gold:#CBB26A; --charcoal:#4A4A4A;
+      --cream:#EBEFE4; --olive:#4A5A48; --eucalyptus:#BCCDB3; --taupe:#D2C6B2;
 
       --font-heading:'Playfair Display',serif;
       --font-body:'Poppins',sans-serif;
@@ -34,165 +29,84 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      font-family:var(--font-body);
-      color:var(--charcoal);
-      background: linear-gradient(to bottom, var(--cream), var(--taupe));
-    }
+    body{font-family:var(--font-body);color:var(--charcoal);background:linear-gradient(to bottom,var(--cream),var(--taupe))}
     img{max-width:100%;height:auto;display:block}
     a{text-decoration:none}
+
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-2)}
     h1{font-size:clamp(2.2rem,5.6vw,3.2rem)}
     h2{font-size:clamp(1.6rem,3.6vw,2.2rem)}
-    h3{font-size:clamp(1.15rem,2.2vw,1.35rem)}
+    h3{font-size:clamp(1.25rem,2.4vw,1.6rem)}
 
-    /* ===== Brand banner ===== */
-    .brand-banner{
-      background: var(--forest);
-      color: var(--silver);
-      text-align:center;
-      padding: clamp(1.5rem, 3.2vw, 2.5rem) 1rem;
-    }
-    .brand-banner .brand-text{
-      font-family:var(--font-heading);
-      font-weight:700;
-      letter-spacing:.5px;
-      line-height:1.05;
-    }
+    /* Brand banner */
+    .brand-banner{background:var(--forest);color:var(--silver);text-align:center;padding:clamp(1.5rem,3.2vw,2.5rem) 1rem}
+    .brand-text{font-family:var(--font-heading);font-weight:700;letter-spacing:.5px}
 
-    /* ===== Shared Nav (matches other pages) ===== */
-    nav{background:var(--forest); color:var(--silver);}
-    .nav{
-      max-width:1100px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:1rem 1.25rem;
-    }
-    .brand{
-      font-family:var(--font-heading);
-      font-size:1.9rem;
-      color:var(--silver);
-      letter-spacing:.5px;
-    }
-    .hamburger{
-      display:none;
-      background:transparent;
-      border:0;
-      color:var(--silver);
-      font-size:1.75rem;
-      cursor:pointer;
-    }
-    .nav-links{
-      display:flex;
-      gap:2rem;
-      align-items:center;
-    }
-    .nav-links a{
-      color:var(--silver);
-      padding:.25rem 0;
-      border-bottom:2px solid transparent;
-      transition:color .25s,border-color .25s;
-    }
-    .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
-    /* Active link: color only, no underline */
-    .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
+    /* Nav (matches other pages) */
+    nav{background:var(--forest);color:var(--silver)}
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 1.25rem}
+    .brand{font-family:var(--font-heading);font-size:1.9rem;color:var(--silver);letter-spacing:.5px}
+    .hamburger{display:none;background:transparent;border:0;color:var(--silver);font-size:1.75rem;cursor:pointer}
+    .nav-links{display:flex;gap:2rem;align-items:center}
+    .nav-links a{color:var(--silver);padding:.25rem 0;border-bottom:2px solid transparent;transition:color .25s,border-color .25s}
+    .nav-links a:hover{border-bottom-color:var(--gold);color:var(--gold)}
+    .nav-links a[aria-current="page"]{border-bottom-color:transparent;color:var(--gold)}
     @media (max-width:900px){
-      .hamburger{ display:block; }
+      .hamburger{display:block}
       .nav-links{
-        position:fixed;
-        inset:0 0 0 auto;
-        width:75%;
-        max-width:300px;
-        background:#4A4A4AE6;
-        backdrop-filter:blur(6px);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:5rem 1.5rem 2rem;
-        gap:1.25rem;
-        transform:translateX(100%);
-        transition:transform .3s ease;
-        z-index:1000;
+        position:fixed; inset:0 0 0 auto; width:75%; max-width:300px;
+        background:#4A4A4AE6; backdrop-filter:blur(6px);
+        flex-direction:column; align-items:flex-start; padding:5rem 1.5rem 2rem; gap:1.25rem;
+        transform:translateX(100%); transition:transform .3s ease; z-index:1000;
       }
-      .nav-links.open{ transform:translateX(0); }
-      .nav-links a{ border-bottom:0; font-size:1.1rem; }
+      .nav-links.open{transform:translateX(0)}
+      .nav-links a{border-bottom:0;font-size:1.1rem}
     }
 
-    /* ===== Hero ===== */
+    /* Hero */
     .hero{
       background:
         radial-gradient(1000px 500px at 100% -10%, rgba(203,178,106,.10), transparent 60%),
         radial-gradient(800px 400px at -10% 100%, rgba(188,205,179,.25), transparent 55%),
         linear-gradient(180deg, var(--cream), var(--eucalyptus) 55%, var(--cream));
-      padding: var(--s-5) 0 var(--s-4);
-      text-align:center;
+      text-align:center; padding:var(--s-5) 0 var(--s-4);
     }
-    .hero h1{font-family:var(--font-heading); color:var(--forest); margin-bottom:.35rem}
+    .hero h1{font-family:var(--font-heading);color:var(--forest);margin-bottom:.35rem}
     .hero p{max-width:820px;margin:0 auto;color:var(--forest)}
 
-    /* ===== Contact Layout ===== */
-    .contact{
-      padding: var(--s-5) 0;
-    }
-    .grid{
-      display:grid;
-      gap: var(--s-3);
-      grid-template-columns: 1fr;
-    }
-    @media(min-width:900px){
-      .grid{ grid-template-columns: 1fr 1.2fr; }
-    }
+    /* Contact section */
+    .contact{padding:var(--s-5) 0}
+    .grid{display:grid;grid-template-columns:1fr;gap:var(--s-4)}
+    @media(min-width:900px){ .grid{grid-template-columns:1.2fr .8fr} }
 
     .card{
-      background:#ffffff;
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow-1);
-      padding: var(--s-3);
+      background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);
+      box-shadow:var(--shadow-1);padding:var(--s-4)
     }
-
-    .card h2{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      margin-bottom:.6rem;
-    }
-    .muted{ color:#5f5f5f; }
-
-    /* Info list */
-    .info-list{margin-top:.5rem; display:grid; gap:.5rem}
-    .info-list a{ color:var(--forest); text-decoration:underline; }
-
-    /* Form */
-    form{ display:grid; gap:1rem; }
-    .row{ display:grid; gap:1rem; grid-template-columns:1fr; }
-    @media(min-width:700px){ .row{ grid-template-columns:1fr 1fr; } }
-    label{ font-weight:600; color:var(--forest); display:block; margin-bottom:.25rem; }
+    form .row{display:grid;grid-template-columns:1fr;gap:var(--s-2)}
+    @media(min-width:700px){ form .row.two{grid-template-columns:1fr 1fr} }
+    label{font-weight:600;color:var(--forest)}
     input, select, textarea{
-      width:100%;
-      background:#fff;
-      border:1px solid #dcdcdc;
-      border-radius:10px;
-      padding:.75rem .9rem;
-      font:inherit;
-      transition:border-color .2s, box-shadow .2s;
+      width:100%;padding:.85rem 1rem;border-radius:10px;border:1px solid rgba(0,0,0,.12);font:inherit;
+      background:#fff
     }
-    textarea{ min-height:140px; resize:vertical; }
-    input:focus, select:focus, textarea:focus{
-      outline:none; border-color:var(--eucalyptus);
-      box-shadow:0 0 0 3px rgba(188,205,179,.35);
-    }
-
+    textarea{min-height:160px;resize:vertical}
     .btn{
-      display:inline-block; background:var(--gold); color:var(--forest);
-      padding:.85rem 1.25rem; border-radius:8px; font-weight:600; border:none;
-      text-decoration:none; transition: background .2s,color .2s, box-shadow .2s; cursor:pointer;
+      display:inline-block;background:var(--gold);color:var(--forest);
+      padding:.85rem 1.25rem;border-radius:8px;font-weight:600;border:none;cursor:pointer;
+      transition:background .2s,color .2s,box-shadow .2s
     }
-    .btn:hover{ background:var(--silver); color:var(--charcoal) }
+    .btn:hover{background:var(--silver);color:var(--charcoal)}
+    .muted{color:#646464;font-size:.95rem}
 
-    .small{ font-size:.9rem; color:#6b6b6b; }
+    .side{
+      display:flex;flex-direction:column;gap:var(--s-2)
+    }
+    .panel{
+      background:var(--cream);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius);padding:var(--s-3)
+    }
+    .panel h3{font-family:var(--font-heading);color:var(--forest);margin-bottom:.25rem}
 
-    /* Footer */
     footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem;margin-top:0}
   </style>
 </head>
@@ -223,8 +137,8 @@
   <!-- Hero -->
   <section class="hero">
     <div class="container">
-      <h1>Let’s Connect</h1>
-      <p>Tell us about your celebration—we’ll reply within 1–2 business days.</p>
+      <h1>Let’s plan your moment</h1>
+      <p>Share a few details below and we’ll respond within 1–2 business days.</p>
     </div>
   </section>
 
@@ -232,54 +146,47 @@
   <section class="contact">
     <div class="container">
       <div class="grid">
-        <!-- Info -->
-        <aside class="card">
-          <h2>Contact Information</h2>
-          <p class="muted">Prefer email or a quick call? We’re happy either way.</p>
-          <div class="info-list" style="margin-top:1rem">
-            <div><strong>Email:</strong> <a href="mailto:ifwhen.events@gmail.com">ifwhen.events@gmail.com</a></div>
-            <div><strong>Phone:</strong> <a href="tel:14076307505">407-630-7505</a></div>
-            <div><strong>Location:</strong> Orlando, FL</div>
-          </div>
-          <hr style="margin:1rem 0; border:0; border-top:1px solid #e6e6e6">
-          <p class="small">Business hours: Mon–Fri, 9am–5pm ET<br>We do our best to respond within 24–48 hours.</p>
-        </aside>
-
         <!-- Form -->
         <div class="card">
-          <h2>Send Us a Message</h2>
-          <!-- Using FormSubmit to send to your Gmail without a backend -->
           <form action="https://formsubmit.co/ifwhen.events@gmail.com" method="POST">
-            <!-- FormSubmit options -->
+            <!-- FormSubmit config -->
             <input type="hidden" name="_subject" value="New inquiry from If & When Events website">
             <input type="hidden" name="_template" value="table">
-            <input type="text" name="_honey" style="display:none"> <!-- honeypot -->
             <input type="hidden" name="_captcha" value="false">
-            <!-- If you make a thank-you page, uncomment the next line and set its URL -->
-            <!-- <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html"> -->
+            <input type="text" name="_honey" style="display:none">
+            <!-- Redirect after success (auto-converted to absolute URL by JS) -->
+            <input type="hidden" name="_next" id="next" value="thank-you.html">
 
-            <div class="row">
+            <div class="row two">
               <div>
-                <label for="name">Your Name *</label>
-                <input id="name" name="name" type="text" required autocomplete="name" placeholder="First & Last Name">
+                <label for="name">Your Name</label>
+                <input id="name" name="Name" type="text" required>
               </div>
               <div>
-                <label for="email">Email *</label>
-                <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com">
+                <label for="email">Email</label>
+                <input id="email" name="Email" type="email" required>
               </div>
             </div>
 
-            <div class="row">
+            <div class="row two" style="margin-top:var(--s-2)">
               <div>
-                <label for="phone">Phone</label>
-                <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="(555) 555-5555">
+                <label for="phone">Phone (optional)</label>
+                <input id="phone" name="Phone" type="tel" placeholder="">
               </div>
               <div>
-                <label for="eventType">Event Type *</label>
-                <select id="eventType" name="eventType" required>
-                  <option value="">Select an event</option>
+                <label for="date">Event Date (if known)</label>
+                <input id="date" name="Event Date" type="date">
+              </div>
+            </div>
+
+            <div class="row" style="margin-top:var(--s-2)">
+              <div>
+                <label for="type">Event Type</label>
+                <select id="type" name="Event Type" required>
+                  <option value="" selected disabled>Select an option</option>
                   <option>Wedding</option>
-                  <option>Shower</option>
+                  <option>Bridal Shower</option>
+                  <option>Baby Shower</option>
                   <option>Birthday / Anniversary</option>
                   <option>Corporate / Launch</option>
                   <option>Other</option>
@@ -287,40 +194,39 @@
               </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top:var(--s-2)">
               <div>
-                <label for="date">Event Date</label>
-                <input id="date" name="date" type="date">
-              </div>
-              <div>
-                <label for="guests">Guest Count (approx.)</label>
-                <input id="guests" name="guests" type="number" min="1" placeholder="e.g., 120">
+                <label for="message">Tell us about your vision</label>
+                <textarea id="message" name="Message" placeholder="A few details about your celebration…" required></textarea>
               </div>
             </div>
 
-            <div>
-              <label for="budget">Estimated Budget</label>
-              <select id="budget" name="budget">
-                <option value="">Select a range</option>
-                <option>$5k–$10k</option>
-                <option>$10k–$20k</option>
-                <option>$20k–$40k</option>
-                <option>$40k+</option>
-              </select>
-            </div>
-
-            <div>
-              <label for="message">Tell us about your vision *</label>
-              <textarea id="message" name="message" required placeholder="What are you celebrating? What matters most to you?"></textarea>
-            </div>
-
-            <div>
+            <div style="margin-top:var(--s-3);display:flex;gap:1rem;align-items:center;flex-wrap:wrap">
               <button class="btn" type="submit">Send Message</button>
+              <span class="muted">We’ll reply within 1–2 business days.</span>
             </div>
-
-            <p class="small">By submitting, you agree we may contact you about your inquiry. See our <a href="privacy.html">Privacy</a> &amp; <a href="terms.html">Terms</a>.</p>
           </form>
         </div>
+
+        <!-- Sidebar -->
+        <aside class="side">
+          <div class="panel">
+            <h3>Email</h3>
+            <p>ifwhen.events@gmail.com</p>
+          </div>
+          <div class="panel">
+            <h3>Phone</h3>
+            <p>407-630-7505</p>
+          </div>
+          <div class="panel">
+            <h3>Based In</h3>
+            <p>Orlando, FL — happily traveling for love & milestones.</p>
+          </div>
+          <div class="panel">
+            <h3>Hours</h3>
+            <p>Mon–Fri 9:00–5:00 ET</p>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -335,7 +241,7 @@
   </footer>
 
   <script>
-    // Mobile nav toggle (same behavior as other pages)
+    // Mobile nav toggle
     const toggle = document.querySelector('.hamburger');
     const links = document.querySelector('.nav-links');
     if(toggle && links){
@@ -343,6 +249,12 @@
         const open = links.classList.toggle('open');
         toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
+    }
+
+    // Ensure FormSubmit gets an absolute URL for the redirect
+    const next = document.getElementById('next');
+    if(next){
+      next.value = new URL('thank-you.html', window.location.href).href;
     }
   </script>
 </body>
