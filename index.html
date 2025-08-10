@@ -62,92 +62,72 @@
       line-height:1.05;
     }
 
-    /* Nav */
-    nav{
-      position:sticky;top:0;z-index:50;
-      background: rgba(74,74,74,0.9);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    
+    /* ===== Top Nav (matches Home) ===== */
+    header{
+      background:var(--forest);
+      color:var(--silver);
     }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.75rem 0}
-    .nav-brand{font-family:var(--font-heading);color:var(--silver);text-decoration:none;font-size:1.1rem}
-    .nav-links{list-style:none;display:flex;gap:1.25rem}
+    .nav{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 1.25rem;
+    }
+    .brand{
+      font-family:var(--font-heading);
+      font-size:1.9rem;
+      color:var(--silver);
+      text-decoration:none;
+      letter-spacing:.5px;
+    }
+    .nav-links{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+    }
     .nav-links a{
-      color:var(--silver);text-decoration:none;font-weight:500;
-      padding-bottom:.25rem;border-bottom:2px solid transparent;transition:color .2s, border-color .2s
+      color:var(--silver);
+      text-decoration:none;
+      padding:.25rem 0;
+      border-bottom:2px solid transparent;
+      transition:color .25s,border-color .25s;
     }
-    .nav-links a:hover, .nav-links a:focus-visible{border-color:var(--gold)}
-    .nav-links a[aria-current="page"]{color:var(--gold);border-color:var(--gold)}
-    /* Mobile */
-    .nav-toggle{display:none; background:transparent;border:0;color:var(--silver);font-size:1.25rem}
-    @media (max-width:800px){
-      .nav-toggle{display:block}
-      .nav-links{display:none;flex-direction:column;gap:1rem;padding:1rem 0}
-      .nav-links.open{display:flex}
+    .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
+    /* Active link: keep color change, remove underline */
+    .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
+
+    /* Mobile menu */
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--silver);
+      font-size:1.75rem;
+      cursor:pointer;
     }
-
-    /* NAV — base */
-nav{
-  position: sticky; top:0; z-index: 50;
-  background: rgba(74,74,74,0.9);
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0,0,0,.06);
-}
-.nav-inner{
-  position: relative;
-  display:flex; align-items:center; justify-content:space-between;
-  gap:1rem; padding:.75rem 0;
-}
-.nav-brand{ color:var(--silver); text-decoration:none; font-family:var(--font-heading) }
-.nav-toggle{ display:none; background:transparent; border:0; color:var(--silver); font-size:1.4rem; line-height:1 }
-
-/* Desktop links */
-.nav-links{
-  list-style:none; display:flex; gap:1.25rem; margin:0; padding:0;
-}
-.nav-links a{
-  color:var(--silver); text-decoration:none; font-weight:500;
-  padding-bottom:.25rem; border-bottom:2px solid transparent;
-  transition:color .2s, border-color .2s;
-}
-.nav-links a:hover, .nav-links a:focus-visible{ border-color:var(--gold) }
-.nav-links a[aria-current="page"]{ color:var(--gold); border-color:var(--gold) }
-
-/* Mobile layout */
-@media (max-width: 900px){
-  .nav-toggle{ display:inline-block }
-  /* hide links until opened */
-  .nav-links{
-    display:none;
-    position:absolute; left:0; right:0; top:100%;
-    flex-direction:column; gap:.25rem;
-    background: rgba(74,74,74,0.97);
-    padding: 1rem 1.25rem;
-    border-top:1px solid rgba(255,255,255,.1);
-    box-shadow: 0 10px 20px rgba(0,0,0,.15);
-  }
-  .nav-links.open{ display:flex; }
-  .nav-links li{ margin:0; }
-  .nav-links a{
-    padding:.6rem 0;
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .nav-links li:last-child a{ border-bottom:0; }
-}
-
-    /* Remove underline from the current (active) page link */
-.nav-links a[aria-current="page"]{
-  border-bottom-color: transparent;  /* kills the gold line */
-  /* keep the color change if you like */
-  color: var(--gold);
-}
-
-/* If you also see dividers on the mobile panel and want none at all: */
-@media (max-width:900px){
-  .nav-links a{ border-bottom: 0; }
-}
-
-
+    @media (max-width:900px){
+      .hamburger{ display:block; }
+      .nav-links{
+        position:fixed;
+        inset:0 0 0 auto;
+        width:75%;
+        max-width:300px;
+        background:#4A4A4AE6; /* charcoal with slight transparency */
+        backdrop-filter:blur(6px);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:5rem 1.5rem 2rem;
+        gap:1.25rem;
+        transform:translateX(100%);
+        transition:transform .3s ease;
+        z-index:1000;
+      }
+      .nav-links.open{ transform:translateX(0); }
+      .nav-links a{ border-bottom:0; font-size:1.1rem; }
+    }
 
     /* Hero (tagline) */
     .hero{
@@ -395,9 +375,13 @@ nav{
   </section>
 
   <footer>
-    <p>&copy; 2025 If &amp; When Events</p>
-    <p><a href="mailto:ifwhen.events@gmail.com" style="color:inherit;">ifwhen.events@gmail.com</a> | <a href="tel:14076307505" style="color:inherit;">407-630-7505</a></p>
-  </footer>
+  <p>&copy; 2025 If &amp; When Events</p>
+  <p>Email: ifwhen.events@gmail.com | Phone: 407-630-7505</p>
+  <nav style="margin-top:.5rem">
+    <a href="privacy.html">Privacy</a> ·
+    <a href="terms.html">Terms</a>
+  </nav>
+</footer>
 
   <script>
     // Mobile nav toggle
