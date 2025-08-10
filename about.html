@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>If & When Events — About</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --forest:#2D4C3A;
+      --silver:#D9D9D9;
+      --gold:#CBB26A;
+      --charcoal:#4A4A4A;
+      --cream:#EBEFE4;
+      --olive:#4A5A48;
+      --eucalyptus:#BCCDB3;
+      --taupe:#D2C6B2;
+
+      --font-heading:'Playfair Display',serif;
+      --font-body:'Poppins',sans-serif;
+      --font-accent:'Allura',cursive;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:var(--font-body);
+      color:var(--charcoal);
+      background:linear-gradient(to bottom,var(--cream),var(--taupe));
+    }
+
+    /* ===== Top Nav (matches Home) ===== */
+    header{
+      background:var(--forest);
+      color:var(--silver);
+    }
+    .nav{
+      max-width:1100px;
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 1.25rem;
+    }
+    .brand{
+      font-family:var(--font-heading);
+      font-size:1.9rem;
+      color:var(--silver);
+      text-decoration:none;
+      letter-spacing:.5px;
+    }
+    .nav-links{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+    }
+    .nav-links a{
+      color:var(--silver);
+      text-decoration:none;
+      padding:.25rem 0;
+      border-bottom:2px solid transparent;
+      transition:color .25s,border-color .25s;
+    }
+    .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
+    /* Active link: keep color change, remove underline */
+    .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
+
+    /* Mobile menu */
+    .hamburger{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--silver);
+      font-size:1.75rem;
+      cursor:pointer;
+    }
+    @media (max-width:900px){
+      .hamburger{ display:block; }
+      .nav-links{
+        position:fixed;
+        inset:0 0 0 auto;
+        width:75%;
+        max-width:300px;
+        background:#4A4A4AE6; /* charcoal with slight transparency */
+        backdrop-filter:blur(6px);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:5rem 1.5rem 2rem;
+        gap:1.25rem;
+        transform:translateX(100%);
+        transition:transform .3s ease;
+        z-index:1000;
+      }
+      .nav-links.open{ transform:translateX(0); }
+      .nav-links a{ border-bottom:0; font-size:1.1rem; }
+    }
+
+    /* ===== Hero ===== */
+    .hero{
+      background:linear-gradient(180deg, var(--eucalyptus) 0%, #e7efdf 60%, transparent 100%);
+      padding:4.5rem 1.25rem 3.5rem;
+    }
+    .hero-inner{
+      max-width:900px;
+      margin:0 auto;
+      text-align:center;
+      background:rgba(235,239,228,.9);
+      border-radius:12px;
+      padding:2.25rem 1.5rem;
+      box-shadow:0 12px 28px rgba(0,0,0,.08);
+    }
+    .hero h1{
+      font-family:var(--font-heading);
+      font-size:2.35rem;
+      color:var(--forest);
+      margin-bottom:.35rem;
+    }
+    .hero p{
+      font-size:1.1rem;
+      color:var(--olive);
+    }
+
+    /* ===== Profiles (stacked, alternating image side) ===== */
+    .profiles{
+      max-width:1100px;
+      margin:3.25rem auto 2rem;
+      padding:0 1.25rem;
+      display:grid;
+      gap:2rem;
+    }
+    .profile-card{
+      display:flex;
+      gap:1.5rem;
+      align-items:center;
+      padding:1.5rem;
+      border-radius:16px;
+      background:#ffffffa6;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+    }
+    /* alternate image side */
+    .profile-card.reverse{ flex-direction:row-reverse; }
+    .portrait{
+      flex:0 0 180px;
+      display:grid;
+      place-items:center;
+    }
+    .portrait img{
+      width:180px;height:180px;object-fit:cover;
+      border-radius:50%;
+      border:6px solid var(--eucalyptus);
+      outline:2px solid #ffffff;
+      box-shadow:0 6px 18px rgba(0,0,0,.12);
+      background:#fff;
+    }
+    .bio h3{
+      font-family:var(--font-heading);
+      color:var(--forest);
+      font-size:1.75rem;
+      margin-bottom:.35rem;
+    }
+    .role{
+      font-family:var(--font-accent);
+      color:var(--olive);
+      font-size:1.6rem;
+      margin-bottom:.5rem;
+    }
+    .bio p{ line-height:1.7; }
+
+    /* ===== Two-column: Timeline + Fun Facts (mirrored) ===== */
+    .story-facts{
+      max-width:1100px;
+      margin:3rem auto 2rem;
+      padding:0 1.25rem;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:3rem;
+    }
+    @media (max-width:900px){ .story-facts{ grid-template-columns:1fr; gap:2.25rem; } }
+
+    .column{
+      position:relative;
+      padding-left:2rem; /* space for the vertical bar */
+    }
+    .column::before{
+      content:"";
+      position:absolute;
+      left:0; top:.35rem; bottom:.35rem;
+      width:4px;
+      background:var(--eucalyptus);
+      border-radius:2px;
+      opacity:.9;
+    }
+    .column h2{
+      font-family:var(--font-heading);
+      color:var(--forest);
+      font-size:2rem;
+      margin-bottom:1.25rem;
+    }
+
+    /* Timeline items */
+    .event{
+      position:relative;
+      padding-left:2rem;
+      margin-bottom:2rem;
+    }
+    .event::before{
+      content:"";
+      position:absolute;
+      left:-8px;
+      /* align the dot with the script subheader baseline nicely */
+      top:.7rem;
+      width:12px;height:12px;
+      background:var(--eucalyptus);
+      border-radius:50%;
+    }
+    .event h4{
+      font-family:var(--font-accent);
+      color:var(--olive);
+      font-size:1.9rem;
+      line-height:1.1;
+      margin-bottom:.35rem;
+    }
+    .event p{ line-height:1.7; }
+
+    /* Fun fact items (mirror the timeline style) */
+    .fact{
+      position:relative;
+      padding-left:2rem;
+      margin-bottom:2rem;
+    }
+    .fact::before{
+      content:"";
+      position:absolute;
+      left:-8px; top:.7rem;
+      width:12px;height:12px;
+      background:var(--eucalyptus);
+      border-radius:50%;
+    }
+    .fact b{ color:var(--forest); }
+
+    /* ===== Values (optional keep) ===== */
+    .values{
+      max-width:1100px;
+      margin:3rem auto 2rem;
+      padding:0 1.25rem;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:1.25rem;
+    }
+    .value-card{
+      background:var(--olive);
+      color:var(--cream);
+      padding:1.5rem;
+      border-radius:14px;
+      text-align:center;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+      transition:transform .25s, background .25s, color .25s;
+    }
+    .value-card:hover{ transform:translateY(-4px); background:var(--silver); color:var(--forest); }
+    .value-card .icon{ font-size:1.8rem; color:var(--gold); margin-bottom:.5rem; }
+    .value-card h4{ font-family:var(--font-heading); margin-bottom:.25rem; }
+
+    /* ===== CTA ===== */
+    .cta{
+      background:var(--gold);
+      margin-top:2.75rem;
+      padding:2rem 1.25rem;
+      text-align:center;
+    }
+    .cta h2{
+      font-family:var(--font-heading);
+      color:var(--forest);
+      font-size:2rem;
+      margin-bottom:.5rem;
+    }
+    .btn{
+      display:inline-block;
+      background:var(--forest);
+      color:var(--cream);
+      padding:.7rem 1.25rem;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:600;
+      transition:background .25s,color .25s, transform .1s;
+    }
+    .btn:hover{ background:var(--silver); color:var(--forest); }
+    .btn:active{ transform:translateY(1px); }
+
+    /* ===== Footer ===== */
+    footer{
+      background:var(--forest);
+      color:var(--silver);
+      text-align:center;
+      padding:2rem 1rem;
+      margin-top:2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav">
+      <a class="brand" href="index.html">If &amp; When Events</a>
+
+      <button class="hamburger" id="navToggle" aria-label="Open menu">☰</button>
+
+      <nav class="nav-links" id="navMenu" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Our Story</h1>
+      <p>We’re Alaina &amp; Alissa — a duo balancing creativity and precision.</p>
+    </div>
+  </section>
+
+  <!-- Profiles: stacked, uniform round frames, alternating image sides -->
+  <section class="profiles" aria-label="Our Profiles">
+    <article class="profile-card">
+      <div class="portrait">
+        <img src="images/alaina.jpg" alt="Alaina — Creative Designer">
+      </div>
+      <div class="bio">
+        <h3>Alaina</h3>
+        <div class="role">The Creative Designer</div>
+        <p>Alaina brings bold design and artistic vision to every event. With a background in fine arts and a passion for color, she transforms spaces into unforgettable experiences.</p>
+      </div>
+    </article>
+
+    <article class="profile-card reverse">
+      <div class="portrait">
+        <img src="images/alissa.jpg" alt="Alissa — Analytical Maestro">
+      </div>
+      <div class="bio">
+        <h3>Alissa</h3>
+        <div class="role">The Analytical Maestro</div>
+        <p>Alissa orchestrates logistics and timelines with musical precision. A former professional musician turned planner, she ensures every detail harmonizes perfectly.</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Timeline & Fun Facts (mirrored columns) -->
+  <section class="story-facts">
+    <!-- Column 1: Timeline -->
+    <div class="column">
+      <h2>Moments That Made Us</h2>
+
+      <div class="event">
+        <h4>First Date</h4>
+        <p>Our journey began with a spark of possibility.</p>
+      </div>
+
+      <div class="event">
+        <h4>Wedding Day</h4>
+        <p>We said “I do” and celebrated love and creativity.</p>
+      </div>
+
+      <div class="event">
+        <h4>If &amp; When Events Founded</h4>
+        <p>Turning “ifs” into “whens” for our clients’ dreams.</p>
+      </div>
+    </div>
+
+    <!-- Column 2: Fun Facts -->
+    <div class="column">
+      <h2>Fun Facts About Us</h2>
+
+      <div class="fact"><b>5+ Years Together</b></div>
+      <div class="fact"><b>75+ Events Planned</b></div>
+      <div class="fact"><b>100% Client Smiles</b></div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="values" aria-label="Our Values">
+    <div class="value-card">
+      <div class="icon">✦</div>
+      <h4>Balance</h4>
+      <p>Harmony between creativity and structure.</p>
+    </div>
+    <div class="value-card">
+      <div class="icon">✿</div>
+      <h4>Creativity</h4>
+      <p>Original design that reflects your story.</p>
+    </div>
+    <div class="value-card">
+      <div class="icon">⚙</div>
+      <h4>Precision</h4>
+      <p>Flawless execution down to every detail.</p>
+    </div>
+    <div class="value-card">
+      <div class="icon">♥</div>
+      <h4>Joy</h4>
+      <p>Moments crafted to inspire and delight.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to plan your moment?</h2>
+    <a class="btn" href="contact.html">Let’s Chat</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 If &amp; When Events</p>
+    <p>Email: ifwhen.events@gmail.com &nbsp;|&nbsp; Phone: 407-630-7505</p>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+    });
+  </script>
+</body>
+</html>
