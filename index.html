@@ -135,6 +135,19 @@ nav{
   .nav-links li:last-child a{ border-bottom:0; }
 }
 
+    /* Remove underline from the current (active) page link */
+.nav-links a[aria-current="page"]{
+  border-bottom-color: transparent;  /* kills the gold line */
+  /* keep the color change if you like */
+  color: var(--gold);
+}
+
+/* If you also see dividers on the mobile panel and want none at all: */
+@media (max-width:900px){
+  .nav-links a{ border-bottom: 0; }
+}
+
+
 
     /* Hero (tagline) */
     .hero{
