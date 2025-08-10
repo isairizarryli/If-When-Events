@@ -64,66 +64,49 @@
       line-height:1.05;
     }
 
-    /* ===== Top Nav (shared) ===== */
-    nav{background:var(--forest); color:var(--silver);}
-    .nav{
-      max-width:1100px;
-      margin:0 auto;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:1rem 1.25rem;
-    }
-    .brand{
-      font-family:var(--font-heading);
-      font-size:1.9rem;
-      color:var(--silver);
-      letter-spacing:.5px;
-    }
-    .nav-links{
-      display:flex;
-      gap:2rem;
-      align-items:center;
-    }
-    .nav-links a{
-      color:var(--silver);
-      padding:.25rem 0;
-      border-bottom:2px solid transparent;
-      transition:color .25s,border-color .25s;
-    }
-    .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
-    /* Active link: color only, no underline */
-    .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
+    /* Top Nav (same as About) */
+header{ background:var(--forest); color:var(--silver); }
+.nav{
+  max-width:1100px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 1.25rem;
+}
+.brand{
+  font-family:var(--font-heading);
+  font-size:1.9rem; color:var(--silver);
+  text-decoration:none; letter-spacing:.5px;
+}
+.nav-links{
+  display:flex; gap:2rem; align-items:center;
+}
+.nav-links a{
+  color:var(--silver); text-decoration:none;
+  padding:.25rem 0; border-bottom:2px solid transparent;
+  transition:color .25s, border-color .25s;
+}
+.nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
+.nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
 
-    /* Mobile menu */
-    .hamburger{
-      display:none;
-      background:transparent;
-      border:0;
-      color:var(--silver);
-      font-size:1.75rem;
-      cursor:pointer;
-    }
-    @media (max-width:900px){
-      .hamburger{ display:block; }
-      .nav-links{
-        position:fixed;
-        inset:0 0 0 auto;
-        width:75%;
-        max-width:300px;
-        background:#4A4A4AE6; /* charcoal w/ transparency */
-        backdrop-filter:blur(6px);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:5rem 1.5rem 2rem;
-        gap:1.25rem;
-        transform:translateX(100%);
-        transition:transform .3s ease;
-        z-index:1000;
-      }
-      .nav-links.open{ transform:translateX(0); }
-      .nav-links a{ border-bottom:0; font-size:1.1rem; }
-    }
+/* Mobile menu */
+.hamburger{
+  display:none; background:transparent; border:0;
+  color:var(--silver); font-size:1.75rem; cursor:pointer;
+}
+@media (max-width:900px){
+  .hamburger{ display:block; }
+  .nav-links{
+    position:fixed; inset:0 0 0 auto;
+    width:75%; max-width:300px;
+    background:#4A4A4AE6; /* charcoal w/ transparency */
+    backdrop-filter:blur(6px);
+    flex-direction:column; align-items:flex-start;
+    padding:5rem 1.5rem 2rem; gap:1.25rem;
+    transform:translateX(100%); transition:transform .3s ease;
+    z-index:1000;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ border-bottom:0; font-size:1.1rem; }
+}
 
     /* Hero (tagline) */
     .hero{
@@ -248,22 +231,22 @@
     </div>
   </header>
 
-  <!-- Header / Nav -->
-  <header>
-    <div class="nav">
-      <a class="brand" href="index.html">If &amp; When Events</a>
+  <!-- Header / Nav (match About) -->
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">If &amp; When Events</a>
 
-      <button class="hamburger" id="navToggle" aria-label="Open menu">☰</button>
+    <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
 
-      <nav class="nav-links" id="navMenu" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="services.html">Services</a>
-        <a href="portfolio.html">Portfolio</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+    <nav class="nav-links" id="navMenu" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
 
   <!-- Hero with tagline -->
   <section class="hero">
@@ -372,15 +355,14 @@
   </footer>
 
   <script>
-    // Mobile nav toggle (shared)
-    const toggle = document.querySelector('.hamburger');
-    const links = document.querySelector('.nav-links');
-    if(toggle && links){
-      toggle.addEventListener('click', ()=>{
-        const open = links.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
-    }
-  </script>
+  const navToggle = document.getElementById('navToggle');
+  const navMenu = document.getElementById('navMenu');
+  if (navToggle && navMenu){
+    navToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
+    });
+  }
+</script>
 </body>
 </html>
