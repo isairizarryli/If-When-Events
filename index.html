@@ -53,6 +53,13 @@
     /* Hide big banner on phones so header isn’t duplicated */
     @media (max-width:900px){ .brand-banner{ display:none; } }
 
+    /* Hide the small brand in the nav on desktop
+   and right-align the nav links */
+@media (min-width: 901px){
+  .brand-link{ display:none; }      /* prevents double branding */
+  .nav{ justify-content: flex-end; } /* pushes links to the right */
+}
+
     /* ===== Header / Nav (matches About/Services) ===== */
     header{ background:var(--forest); color:var(--silver); }
     .nav{
