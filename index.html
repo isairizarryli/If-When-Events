@@ -93,6 +93,11 @@ header{ background:var(--forest); color:var(--silver); }
 }
 .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
 .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
+    /* Make the link group hug the right on desktop */
+.nav-links{ margin-left: auto; }
+@media (max-width: 900px){
+  .nav-links{ margin-left: 0; } /* don’t affect the slide-in mobile menu */
+}
 
 /* Mobile menu */
 .hamburger{
