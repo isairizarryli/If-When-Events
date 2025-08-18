@@ -6,22 +6,13 @@
   <title>If & When Events — Home</title>
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Allura&family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
   <meta name="description" content="If & When Events — intentional event planning blending creativity and precision. Weddings, showers, milestones, and launches.">
-
   <style>
     :root{
-      --forest:#2D4C3A;
-      --silver:#D9D9D9;
-      --gold:#CBB26A;
-      --charcoal:#4A4A4A;
-      --cream:#EBEFE4;
-      --olive:#4A5A48;
-      --eucalyptus:#BCCDB3;
-      --taupe:#D2C6B2;
+      --forest:#2D4C3A; --silver:#D9D9D9; --gold:#CBB26A; --charcoal:#4A4A4A;
+      --cream:#EBEFE4; --olive:#4A5A48; --eucalyptus:#BCCDB3; --taupe:#D2C6B2;
 
       --font-heading:'Playfair Display',serif;
       --font-body:'Poppins',sans-serif;
@@ -36,13 +27,9 @@
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
-    body{
-      font-family:var(--font-body);
-      color:var(--charcoal);
-      background: linear-gradient(to bottom, var(--cream), var(--taupe));
-    }
+    body{font-family:var(--font-body);color:var(--charcoal);background: linear-gradient(to bottom, var(--cream), var(--taupe))}
     img{max-width:100%;height:auto;display:block}
-    ul{list-style:none;padding:0;margin:0}
+    ul{list-style:none}
     a{text-decoration:none}
 
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-2)}
@@ -50,7 +37,7 @@
     h2{font-size:clamp(1.8rem,3.8vw,2.5rem)}
     h3{font-size:clamp(1.25rem,2.4vw,1.6rem)}
 
-    /* Brand banner (big company name) */
+    /* ===== Brand banner (large company name) ===== */
     .brand-banner{
       background: var(--forest);
       color: var(--silver);
@@ -63,67 +50,63 @@
       letter-spacing:.5px;
       line-height:1.05;
     }
-    /* Hide the big brand banner on mobile */
-@media (max-width: 900px) {
-  .brand-banner { 
-    display: none;
-  }
-}
+    /* Hide big banner on phones so header isn’t duplicated */
+    @media (max-width:900px){ .brand-banner{ display:none; } }
 
+    /* ===== Header / Nav (matches About/Services) ===== */
+    header{ background:var(--forest); color:var(--silver); }
+    .nav{
+      max-width:var(--maxw);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1rem 1.25rem;
+    }
+    .brand-link{
+      font-family:var(--font-heading);
+      font-size:1.9rem;
+      color:var(--silver);
+      letter-spacing:.5px;
+    }
+    .nav-links{
+      display:flex;
+      gap:2rem;
+      align-items:center;
+      margin-left:auto;          /* push links to the right */
+    }
+    .nav-links a{
+      color:var(--silver);
+      padding:.25rem 0;
+      border-bottom:2px solid transparent;
+      transition:color .25s,border-color .25s;
+    }
+    .nav-links a:hover{ color:var(--gold); border-bottom-color:var(--gold); }
+    /* Active link: color only (no underline) */
+    .nav-links a[aria-current="page"]{ color:var(--gold); border-bottom-color:transparent; }
 
-    /* Top Nav (same as About) */
-header{ background:var(--forest); color:var(--silver); }
-.nav{
-  max-width:1100px; margin:0 auto;
-  display:flex; align-items:right; justify-content:space-between;
-  padding:1rem 1.25rem;
-}
-.brand{
-  font-family:var(--font-heading);
-  font-size:1.9rem; color:var(--silver);
-  text-decoration:none; letter-spacing:.5px;
-}
-.nav-links{
-  display:flex; gap:2rem; align-items:center;
-}
-.nav-links a{
-  color:var(--silver); text-decoration:none;
-  padding:.25rem 0; border-bottom:2px solid transparent;
-  transition:color .25s, border-color .25s;
-}
-.nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
-.nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
-    /* Make the link group hug the right on desktop */
-.nav-links{ margin-left: auto; }
-@media (max-width: 900px){
-  .nav-links{ margin-left: 0; } /* don’t affect the slide-in mobile menu */
-}
+    /* Mobile slide-in menu */
+    .hamburger{
+      display:none; background:transparent; border:0;
+      color:var(--silver); font-size:1.75rem; cursor:pointer;
+    }
+    @media (max-width:900px){
+      .hamburger{ display:block; }
+      .nav-links{
+        position:fixed; right:0; top:0; bottom:0;
+        width:75%; max-width:300px;
+        background:#4A4A4AE6; backdrop-filter:blur(6px);
+        flex-direction:column; align-items:flex-start;
+        padding:5rem 1.5rem 2rem; gap:1.25rem;
+        transform:translateX(100%); transition:transform .3s ease; z-index:1000;
+      }
+      .nav-links.open{ transform:translateX(0); }
+      .nav-links a{ border-bottom:0; font-size:1.1rem; }
+    }
 
-/* Mobile menu */
-.hamburger{
-  display:none; background:transparent; border:0;
-  color:var(--silver); font-size:1.75rem; cursor:pointer;
-}
-@media (max-width:900px){
-  .hamburger{ display:block; }
-  .nav-links{
-    position:fixed; inset:0 0 0 auto;
-    width:75%; max-width:300px;
-    background:#4A4A4AE6; /* charcoal w/ transparency */
-    backdrop-filter:blur(6px);
-    flex-direction:column; align-items:flex-start;
-    padding:5rem 1.5rem 2rem; gap:1.25rem;
-    transform:translateX(100%); transition:transform .3s ease;
-    z-index:1000;
-  }
-  .nav-links.open{ transform:translateX(0); }
-  .nav-links a{ border-bottom:0; font-size:1.1rem; }
-}
-
-    /* Hero (tagline) */
+    /* ===== Hero ===== */
     .hero{
-      position:relative;
-      overflow:hidden;
+      position:relative; overflow:hidden;
       background:
         radial-gradient(1200px 600px at 100% -10%, rgba(203,178,106,.10), transparent 60%),
         radial-gradient(800px 400px at -10% 100%, rgba(188,205,179,.25), transparent 55%),
@@ -131,21 +114,13 @@ header{ background:var(--forest); color:var(--silver); }
       padding: var(--s-5) 0;
     }
     .hero .container{display:grid;gap:var(--s-3);justify-items:center;text-align:center}
-    .kicker{
-      font-family:var(--font-accent);
-      color:var(--olive);
-      font-size:clamp(1.4rem,3vw,2rem);
-    }
-    .hero h1{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      margin-top:.25rem;
-    }
-    .hero p.lead{ max-width:720px; font-size:1.125rem; color:var(--forest) }
+    .kicker{font-family:var(--font-accent);color:var(--olive);font-size:clamp(1.4rem,3vw,2rem)}
+    .hero h1{font-family:var(--font-heading);color:var(--forest);margin-top:.25rem}
+    .hero p.lead{max-width:720px;font-size:1.125rem;color:var(--forest)}
     .btn{
-      display:inline-block; background:var(--gold); color:var(--forest);
-      padding:.8rem 1.3rem; border-radius:8px; font-weight:600; border:none;
-      text-decoration:none; transition: background .2s,color .2s, box-shadow .2s
+      display:inline-block;background:var(--gold);color:var(--forest);
+      padding:.8rem 1.3rem;border-radius:8px;font-weight:600;border:none;
+      transition: background .2s,color .2s, box-shadow .2s
     }
     .btn:hover{ background:var(--silver); color:var(--charcoal) }
     .btn-outline{ background:transparent;border:2px solid var(--gold);color:var(--forest) }
@@ -153,7 +128,7 @@ header{ background:var(--forest); color:var(--silver); }
     .btn:focus-visible{ outline:3px solid var(--eucalyptus); outline-offset:2px }
     .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem}
 
-    /* Value props */
+    /* ===== Values ===== */
     .values{padding: var(--s-5) 0}
     .value-grid{ display:grid;grid-template-columns:1fr;gap:var(--s-3) }
     @media(min-width:900px){ .value-grid{grid-template-columns:repeat(3,1fr)} }
@@ -170,7 +145,7 @@ header{ background:var(--forest); color:var(--silver); }
     .value-icon{font-size:2rem;color:var(--gold);margin-bottom:.4rem}
     .value-card h3{font-family:var(--font-heading);color:var(--forest);margin-bottom:.25rem}
 
-    /* Featured services */
+    /* ===== Services ===== */
     .services{background: linear-gradient(180deg, var(--cream), var(--taupe)); padding: var(--s-5) 0}
     .services h2{text-align:center;margin-bottom: var(--s-3); color:var(--forest); font-family:var(--font-heading)}
     .service-grid{display:grid;grid-template-columns:1fr;gap:var(--s-3)}
@@ -183,12 +158,11 @@ header{ background:var(--forest); color:var(--silver); }
     }
     .service-card:hover{ transform: translateY(-3px); box-shadow:var(--shadow-2) }
     .service-card h3{font-family:var(--font-heading);margin-bottom:.3rem}
-    .service-card p{opacity:.95}
     .service-actions{margin-top:1rem}
     .service-actions .btn{background:var(--gold);color:var(--forest)}
     .service-actions .btn:hover{background:var(--silver);color:var(--charcoal)}
 
-    /* Gallery placeholders */
+    /* ===== Gallery ===== */
     .gallery{padding: var(--s-5) 0}
     .gallery h2{text-align:center;margin-bottom: var(--s-3); color:var(--forest); font-family:var(--font-heading)}
     .gallery-grid{display:grid;grid-template-columns:1fr;gap:var(--s-3)}
@@ -205,7 +179,7 @@ header{ background:var(--forest); color:var(--silver); }
       box-shadow: var(--shadow-1);
     }
 
-    /* Testimonial */
+    /* ===== Testimonial ===== */
     .quote{ background: var(--taupe); padding: var(--s-5) 0; }
     .quote .wrap{max-width:900px;margin:0 auto;text-align:center;padding-inline:var(--s-2)}
     .quote blockquote{
@@ -216,50 +190,43 @@ header{ background:var(--forest); color:var(--silver); }
     }
     .quote p.cite{margin-top:.75rem;color:var(--forest);font-weight:600}
 
-    /* CTA strip */
-    .cta{
-      background: var(--gold);
-      color: var(--forest);
-      text-align:center;
-      padding: var(--s-5) var(--s-2);
-    }
+    /* ===== CTA ===== */
+    .cta{background: var(--gold); color: var(--forest); text-align:center; padding: var(--s-5) var(--s-2)}
     .cta h2{font-family:var(--font-heading);margin-bottom:.6rem}
     .cta .btn{background:var(--forest);color:var(--cream)}
     .cta .btn:hover{background:var(--silver);color:var(--charcoal)}
 
     /* Footer */
     footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem;margin-top:0}
-
-    /* Accessibility helper */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
   </style>
 </head>
 <body>
 
   <!-- Big brand banner -->
-  <header class="brand-banner">
+  <div class="brand-banner">
     <div class="container">
       <h1 class="brand-text">If &amp; When Events</h1>
     </div>
+  </div>
+
+  <!-- Header / Nav -->
+  <header>
+    <div class="nav">
+      <a class="brand-link" href="index.html">If &amp; When Events</a>
+
+      <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+
+      <nav class="nav-links" id="navMenu" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- Header / Nav (match About) -->
-<header>
-  <div class="nav">
-
-    <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
-
-    <nav class="nav-links" id="navMenu" aria-label="Primary">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="portfolio.html">Portfolio</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
-
-  <!-- Hero with tagline -->
+  <!-- Hero -->
   <section class="hero">
     <div class="container">
       <div class="kicker">Taking your “ifs” to “whens.”</div>
@@ -272,7 +239,7 @@ header{ background:var(--forest); color:var(--silver); }
     </div>
   </section>
 
-  <!-- Value props -->
+  <!-- Values -->
   <section class="values">
     <div class="container">
       <div class="value-grid">
@@ -295,7 +262,7 @@ header{ background:var(--forest); color:var(--silver); }
     </div>
   </section>
 
-  <!-- Featured services -->
+  <!-- Services -->
   <section class="services">
     <div class="container">
       <h2>What We Do</h2>
@@ -303,29 +270,23 @@ header{ background:var(--forest); color:var(--silver); }
         <div class="service-card">
           <h3>Weddings</h3>
           <p>Full-service planning, partial planning, and day-of coordination tailored to your style.</p>
-          <div class="service-actions">
-            <a class="btn" href="services.html#weddings">See Wedding Services</a>
-          </div>
+          <div class="service-actions"><a class="btn" href="services.html#weddings">See Wedding Services</a></div>
         </div>
         <div class="service-card">
           <h3>Showers &amp; Celebrations</h3>
           <p>Bridal &amp; baby showers, birthdays, anniversaries—sweet, stylish, stress-free.</p>
-          <div class="service-actions">
-            <a class="btn" href="services.html#celebrations">Explore Celebrations</a>
-          </div>
+          <div class="service-actions"><a class="btn" href="services.html#celebrations">Explore Celebrations</a></div>
         </div>
         <div class="service-card">
           <h3>Corporate &amp; Launches</h3>
           <p>Openings, brand activations, and team events that feel seamless and on-brand.</p>
-          <div class="service-actions">
-            <a class="btn" href="services.html#corporate">View Corporate</a>
-          </div>
+          <div class="service-actions"><a class="btn" href="services.html#corporate">View Corporate</a></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Gallery placeholders -->
+  <!-- Gallery -->
   <section class="gallery">
     <div class="container">
       <h2>Favorites from Our Portfolio</h2>
@@ -366,14 +327,15 @@ header{ background:var(--forest); color:var(--silver); }
   </footer>
 
   <script>
-  const navToggle = document.getElementById('navToggle');
-  const navMenu = document.getElementById('navMenu');
-  if (navToggle && navMenu){
-    navToggle.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
-      navToggle.setAttribute('aria-expanded', navMenu.classList.contains('open'));
-    });
-  }
-</script>
+    // Mobile nav toggle (same across site)
+    const toggle = document.getElementById('navToggle');
+    const menu   = document.getElementById('navMenu');
+    if (toggle && menu){
+      toggle.addEventListener('click', ()=>{
+        const open = menu.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+  </script>
 </body>
 </html>
