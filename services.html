@@ -31,7 +31,6 @@
       background:linear-gradient(to bottom,var(--cream),var(--taupe));
     }
 
-    /* ===== Header / Nav (matches other pages) ===== */
     header{ background:var(--forest); color:var(--silver); }
     .nav{
       max-width:1100px;
@@ -63,250 +62,78 @@
     .nav-links a:hover{ border-bottom-color:var(--gold); color:var(--gold); }
     .nav-links a[aria-current="page"]{ border-bottom-color:transparent; color:var(--gold); }
 
-    .hamburger{
-      display:none;
-      background:transparent;
-      border:0;
-      color:var(--silver);
-      font-size:1.75rem;
-      cursor:pointer;
-    }
+    .hamburger{display:none;background:transparent;border:0;color:var(--silver);font-size:1.75rem;cursor:pointer;}
     @media (max-width:900px){
       .hamburger{ display:block; }
       .nav-links{
-        position:fixed;
-        inset:0 0 0 auto;
-        width:75%;
-        max-width:300px;
-        background:#4A4A4AE6;
-        backdrop-filter:blur(6px);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:5rem 1.5rem 2rem;
-        gap:1.25rem;
-        transform:translateX(100%);
-        transition:transform .3s ease;
-        z-index:1000;
+        position:fixed;inset:0 0 0 auto;width:75%;max-width:300px;
+        background:#4A4A4AE6;backdrop-filter:blur(6px);
+        flex-direction:column;align-items:flex-start;
+        padding:5rem 1.5rem 2rem;gap:1.25rem;
+        transform:translateX(100%);transition:transform .3s ease;z-index:1000;
       }
       .nav-links.open{ transform:translateX(0); }
       .nav-links a{ border-bottom:0; font-size:1.1rem; }
     }
 
-    /* ===== Hero ===== */
-    .hero{
-      background:linear-gradient(180deg, var(--eucalyptus) 0%, #e7efdf 60%, transparent 100%);
-      padding:4.25rem 1.25rem 3.5rem;
-    }
-    .hero-inner{
-      max-width:950px;
-      margin:0 auto;
-      text-align:center;
-      background:rgba(235,239,228,.9);
-      border-radius:12px;
-      padding:2.25rem 1.5rem;
-      box-shadow:0 12px 28px rgba(0,0,0,.08);
-    }
-    .eyebrow{
-      font-family:var(--font-accent);
-      color:var(--olive);
-      font-size:1.6rem;
-      margin-bottom:.35rem;
-    }
-    .hero h1{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      font-size:2.35rem;
-      margin-bottom:.5rem;
-    }
+    .hero{background:linear-gradient(180deg, var(--eucalyptus) 0%, #e7efdf 60%, transparent 100%);
+      padding:4.25rem 1.25rem 3.5rem;}
+    .hero-inner{max-width:950px;margin:0 auto;text-align:center;background:rgba(235,239,228,.9);
+      border-radius:12px;padding:2.25rem 1.5rem;box-shadow:0 12px 28px rgba(0,0,0,.08);}
+    .eyebrow{font-family:var(--font-accent);color:var(--olive);font-size:1.6rem;margin-bottom:.35rem;}
+    .hero h1{font-family:var(--font-heading);color:var(--forest);font-size:2.35rem;margin-bottom:.5rem;}
     .hero p{ max-width:700px; margin:0 auto; }
 
-    /* ===== Packages ===== */
-    .section{
-      max-width:1100px;
-      margin:3rem auto 0;
-      padding:0 1.25rem;
-    }
-    .section h2{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      font-size:2rem;
-      margin-bottom:1rem;
-    }
-    .packages{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-      gap:1.25rem;
-    }
-    .card{
-      display:flex;
-      flex-direction:column;
-      background:#ffffffa6;
-      border-radius:16px;
-      padding:1.5rem;
-      box-shadow:0 10px 24px rgba(0,0,0,.08);
-      transition:transform .2s ease, box-shadow .2s ease;
-      min-height:380px;
-    }
+    .section{max-width:1100px;margin:3rem auto 0;padding:0 1.25rem;}
+    .section h2{font-family:var(--font-heading);color:var(--forest);font-size:2rem;margin-bottom:1rem;}
+    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;}
+    .card{display:flex;flex-direction:column;background:#ffffffa6;border-radius:16px;
+      padding:1.5rem;box-shadow:0 10px 24px rgba(0,0,0,.08);transition:transform .2s ease, box-shadow .2s ease;min-height:380px;}
     .card:hover{ transform:translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.12); }
-    .card .tag{
-      display:inline-block;
-      background:var(--gold);
-      color:var(--forest);
-      padding:.25rem .6rem;
-      border-radius:999px;
-      font-size:.85rem;
-      font-weight:600;
-      margin-bottom:.5rem;
-    }
-    .card h3{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      font-size:1.5rem;
-      margin:.25rem 0 .75rem;
-    }
-    .card ul{ list-style:none; display:grid; gap:.5rem; }
-    .card li{
-      position:relative;
-      padding-left:1.25rem;
-      line-height:1.6;
-    }
-    .card li::before{
-      content:"";
-      position:absolute;
-      left:0; top:.55rem;
-      width:10px; height:10px;
-      background:var(--eucalyptus);
-      border-radius:50%;
-    }
-    .price{
-      margin-top:1rem;
-      font-weight:600;
-      color:var(--olive);
-    }
-    .card .btn{
-      margin-top:auto;
-      align-self:flex-start;
-    }
+    .card .tag{display:inline-block;background:var(--gold);color:var(--forest);padding:.25rem .6rem;
+      border-radius:999px;font-size:.85rem;font-weight:600;margin-bottom:.5rem;}
+    .card h3{font-family:var(--font-heading);color:var(--forest);font-size:1.5rem;margin:.25rem 0 .75rem;}
+    .card ul{list-style:none;display:grid;gap:.5rem;}
+    .card li{position:relative;padding-left:1.25rem;line-height:1.6;}
+    .card li::before{content:"";position:absolute;left:0;top:.55rem;width:10px;height:10px;background:var(--eucalyptus);border-radius:50%;}
+    .price{margin-top:1rem;font-weight:600;color:var(--olive);}
+    .card .btn{margin-top:auto;align-self:flex-start;}
 
-    /* Buttons */
-    .btn{
-      display:inline-block;
-      background:var(--forest);
-      color:var(--cream);
-      padding:.7rem 1.1rem;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:600;
-      transition:background .25s,color .25s, transform .1s;
-    }
+    .btn{display:inline-block;background:var(--forest);color:var(--cream);padding:.7rem 1.1rem;border-radius:8px;
+      text-decoration:none;font-weight:600;transition:background .25s,color .25s, transform .1s;}
     .btn:hover{ background:var(--silver); color:var(--forest); }
     .btn:active{ transform:translateY(1px); }
 
-    /* ===== Add-ons ===== */
-    .addons{
-      display:flex;
-      flex-wrap:wrap;
-      gap:.6rem .6rem;
-      margin-top:.5rem;
-    }
-    .chip{
-      background:#fff;
-      border:1px solid var(--eucalyptus);
-      color:var(--olive);
-      padding:.45rem .7rem;
-      border-radius:999px;
-      font-weight:600;
-      font-size:.92rem;
-    }
+    .addons{display:flex;flex-wrap:wrap;gap:.6rem .6rem;margin-top:.5rem;}
+    .chip{background:#fff;border:1px solid var(--eucalyptus);color:var(--olive);padding:.45rem .7rem;
+      border-radius:999px;font-weight:600;font-size:.92rem;}
 
-    /* ===== Process (simple timeline) ===== */
-    .process{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:1rem;
-      margin-top:.75rem;
-    }
+    .process{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:.75rem;}
     @media (max-width:900px){ .process{ grid-template-columns:1fr; } }
-    .step{
-      background:#ffffffa6;
-      border-radius:14px;
-      padding:1rem 1rem 1.25rem;
-      box-shadow:0 10px 24px rgba(0,0,0,.08);
-      position:relative;
-    }
-    .step h4{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      margin-bottom:.35rem;
-      font-size:1.15rem;
-    }
-    .num{
-      position:absolute;
-      top:-12px; left:14px;
-      width:28px; height:28px;
-      border-radius:50%;
-      background:var(--eucalyptus);
-      color:var(--forest);
-      display:grid; place-items:center;
-      font-weight:700;
-      box-shadow:0 6px 14px rgba(0,0,0,.12);
-    }
+    .step{background:#ffffffa6;border-radius:14px;padding:1rem 1rem 1.25rem;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);position:relative;}
+    .step h4{font-family:var(--font-heading);color:var(--forest);margin-bottom:.35rem;font-size:1.15rem;}
+    .num{position:absolute;top:-12px;left:14px;width:28px;height:28px;border-radius:50%;
+      background:var(--eucalyptus);color:var(--forest);display:grid;place-items:center;font-weight:700;box-shadow:0 6px 14px rgba(0,0,0,.12);}
 
-    /* ===== FAQ (details/summary for no-JS) ===== */
-    .faq{
-      display:grid;
-      gap:.75rem;
-      margin-top:.5rem;
-    }
-    details{
-      background:#ffffffa6;
-      border-radius:12px;
-      padding:.85rem 1rem;
-      box-shadow:0 10px 24px rgba(0,0,0,.08);
-    }
-    summary{
-      cursor:pointer;
-      font-weight:600;
-      color:var(--forest);
-      outline:none;
-      list-style:none;
-    }
+    .faq{display:grid;gap:.75rem;margin-top:.5rem;}
+    details{background:#ffffffa6;border-radius:12px;padding:.85rem 1rem;box-shadow:0 10px 24px rgba(0,0,0,.08);}
+    summary{cursor:pointer;font-weight:600;color:var(--forest);outline:none;list-style:none;}
     summary::-webkit-details-marker{ display:none; }
     details[open]{ background:#fff; }
 
-    /* ===== CTA ===== */
-    .cta{
-      background:var(--gold);
-      margin-top:2.75rem;
-      padding:2rem 1.25rem;
-      text-align:center;
-    }
-    .cta h2{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      font-size:2rem;
-      margin-bottom:.5rem;
-    }
+    .cta{background:var(--gold);margin-top:2.75rem;padding:2rem 1.25rem;text-align:center;}
+    .cta h2{font-family:var(--font-heading);color:var(--forest);font-size:2rem;margin-bottom:.5rem;}
 
-    /* ===== Footer ===== */
-    footer{
-      background:var(--forest);
-      color:var(--silver);
-      text-align:center;
-      padding:2rem 1rem;
-      margin-top:2rem;
-    }
+    footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem 1rem;margin-top:2rem;}
   </style>
 </head>
 <body>
 
-  <!-- Header / Nav -->
   <header>
     <div class="nav">
       <a class="brand" href="index.html">If/When Events</a>
-
       <button class="hamburger" id="navToggle" aria-label="Open menu">☰</button>
-
       <nav class="nav-links" id="navMenu" aria-label="Primary">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
@@ -317,12 +144,11 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-inner">
       <div class="eyebrow">Taking your “ifs” to “whens.”</div>
       <h1>Services crafted for every kind of celebration</h1>
-      <p>From full-service planning to expert month-of coordination, we shape stress-free, beautifully balanced events that feel like you.</p>
+      <p>From full-service planning to expert coordination, we shape stress-free, beautifully balanced events that feel like you.</p>
     </div>
   </section>
 
@@ -331,46 +157,73 @@
     <h2>Planning Packages</h2>
 
     <div class="packages">
-      <!-- Full Planning -->
       <article class="card">
         <span class="tag">Most Comprehensive</span>
-        <h3>Full Planning</h3>
+        <h3>From If to When – Full Planning</h3>
         <ul>
-          <li>Vision discovery &amp; design direction</li>
-          <li>Budget creation &amp; management</li>
-          <li>Venue scouting &amp; vendor sourcing</li>
-          <li>Custom timeline &amp; guest logistics</li>
-          <li>On-site team &amp; end-to-end coordination</li>
+          <li>2 consultations</li>
+          <li>Moodboard &amp; theming help</li>
+          <li>Vendor sourcing &amp; recommendations</li>
+          <li>Vendor confirmations</li>
+          <li>Timeline creation &amp; review</li>
+          <li>Day-of coordination</li>
         </ul>
-        <div class="price">Custom proposal</div>
+        <div class="price">$850</div>
         <a class="btn" href="contact.html">Inquire</a>
       </article>
 
-      <!-- Partial Planning -->
       <article class="card">
         <span class="tag">Popular</span>
-        <h3>Partial Planning</h3>
+        <h3>The When – Day-Of Coordination</h3>
         <ul>
-          <li>Design refinement &amp; vendor curation</li>
-          <li>Monthly check-ins &amp; milestone tracking</li>
-          <li>Timeline build &amp; rehearsal management</li>
-          <li>Vendor confirmations &amp; final details</li>
+          <li>1 consultation</li>
+          <li>Timeline review</li>
+          <li>Vendor confirmations</li>
+          <li>Day-of coordination (8 hrs on-site)</li>
         </ul>
-        <div class="price">Custom proposal</div>
+        <div class="price">$400</div>
         <a class="btn" href="contact.html">Inquire</a>
       </article>
 
-      <!-- Event Management -->
       <article class="card">
-        <span class="tag">Month-Of</span>
-        <h3>Event Management</h3>
+        <span class="tag">Entry Package</span>
+        <h3>The If – Planning Only</h3>
         <ul>
-          <li>60-day handoff &amp; detail review</li>
-          <li>Master timeline &amp; vendor confirmations</li>
-          <li>Rehearsal direction</li>
-          <li>Day-of coordination &amp; problem solving</li>
+          <li>1 consultation</li>
+          <li>Event timeline review</li>
+          <li>Vendor recommendations</li>
+          <li>Email/text support</li>
         </ul>
-        <div class="price">Custom proposal</div>
+        <div class="price">$250</div>
+        <a class="btn" href="contact.html">Inquire</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Smaller Packages -->
+  <section class="section">
+    <h2>Smaller Services</h2>
+    <div class="packages">
+      <article class="card">
+        <span class="tag">Styling</span>
+        <h3>The Details – Decor &amp; Styling</h3>
+        <ul>
+          <li>1 consultation</li>
+          <li>Moodboard &amp; theming help</li>
+          <li>Setup &amp; styling on event day</li>
+        </ul>
+        <div class="price">$225</div>
+        <a class="btn" href="contact.html">Inquire</a>
+      </article>
+
+      <article class="card">
+        <span class="tag">Teardown</span>
+        <h3>The Wrap-Up – Teardown Services</h3>
+        <ul>
+          <li>2 hours teardown &amp; packing</li>
+          <li>Safe handling of rentals &amp; decor</li>
+        </ul>
+        <div class="price">$175</div>
         <a class="btn" href="contact.html">Inquire</a>
       </article>
     </div>
@@ -380,15 +233,12 @@
   <section class="section" id="addons">
     <h2>Enhancements &amp; Add-Ons</h2>
     <div class="addons">
-      <span class="chip">Design Boards</span>
-      <span class="chip">Custom Signage</span>
-      <span class="chip">Stationery Suite</span>
-      <span class="chip">RSVP Management</span>
-      <span class="chip">Rehearsal Dinner</span>
-      <span class="chip">Welcome Party</span>
-      <span class="chip">Next-Day Brunch</span>
-      <span class="chip">On-Site Styling</span>
-      <span class="chip">Vendor Gratitudes</span>
+      <span class="chip">DIY Assembly &amp; Styling — $125</span>
+      <span class="chip">Balloon Decor Assembly — $150</span>
+      <span class="chip">RSVP Management — $100</span>
+      <span class="chip">Custom Signage Design — $120</span>
+      <span class="chip">Seating Chart Assistance — $100</span>
+      <span class="chip">Extra Setup/Teardown Hours — $30/hr</span>
     </div>
   </section>
 
@@ -396,66 +246,28 @@
   <section class="section" id="process">
     <h2>How We Work</h2>
     <div class="process">
-      <div class="step">
-        <div class="num">1</div>
-        <h4>Connect</h4>
-        <p>Share your vision, priorities, and must-haves in a relaxed consult.</p>
-      </div>
-      <div class="step">
-        <div class="num">2</div>
-        <h4>Design</h4>
-        <p>We craft a balanced plan—creative direction + logistical clarity.</p>
-      </div>
-      <div class="step">
-        <div class="num">3</div>
-        <h4>Coordinate</h4>
-        <p>Vendors, timelines, and details come together seamlessly.</p>
-      </div>
-      <div class="step">
-        <div class="num">4</div>
-        <h4>Celebrate</h4>
-        <p>We run show-day so you can be present for every moment.</p>
-      </div>
+      <div class="step"><div class="num">1</div><h4>Connect</h4><p>Share your vision, priorities, and must-haves in a relaxed consult.</p></div>
+      <div class="step"><div class="num">2</div><h4>Design</h4><p>We craft a balanced plan—creative direction + logistical clarity.</p></div>
+      <div class="step"><div class="num">3</div><h4>Coordinate</h4><p>Vendors, timelines, and details come together seamlessly.</p></div>
+      <div class="step"><div class="num">4</div><h4>Celebrate</h4><p>We run show-day so you can be present for every moment.</p></div>
     </div>
   </section>
 
-  <!-- FAQs -->
-  <section class="section" id="faq">
-    <h2>FAQs</h2>
-    <div class="faq">
-      <details>
-        <summary>Do you travel?</summary>
-        <p>Absolutely—central Florida and beyond. Travel fees are custom-quoted based on location.</p>
-      </details>
-      <details>
-        <summary>Do you work with preferred vendors?</summary>
-        <p>Yes, and we’re also happy to discover new partners that fit your style and budget.</p>
-      </details>
-      <details>
-        <summary>When should we book?</summary>
-        <p>Full and partial planning: 9–18 months out. Event management: ideally 3–6 months out.</p>
-      </details>
-    </div>
-  </section>
-
-  <!-- CTA -->
   <section class="cta">
     <h2>Let’s plan your moment</h2>
     <a class="btn" href="contact.html">Start the conversation</a>
   </section>
 
   <footer>
-  <p>&copy; 2025 If/When Events</p>
-  <p>Email: ifwhen.events@gmail.com | Phone: 407-630-7505</p>
-  <nav style="margin-top:.5rem">
-    <a href="privacy.html">Privacy</a> ·
-    <a href="terms.html">Terms</a>
-  </nav>
-</footer>
-
+    <p>&copy; 2025 If/When Events</p>
+    <p>Email: ifwhen.events@gmail.com | Phone: 407-630-7505</p>
+    <nav style="margin-top:.5rem">
+      <a href="privacy.html">Privacy</a> ·
+      <a href="terms.html">Terms</a>
+    </nav>
+  </footer>
 
   <script>
-    // Mobile menu toggle
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
     navToggle.addEventListener('click', () => {
