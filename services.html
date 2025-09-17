@@ -125,19 +125,22 @@
     .cta{background:var(--gold);margin-top:2.75rem;padding:2rem 1.25rem;text-align:center;}
     .cta h2{font-family:var(--font-heading);color:var(--forest);font-size:2rem;margin-bottom:.5rem;}
 
-    footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem 1rem;margin-top:2rem;}
+    /* Keep cards compact on desktop too */
+.packages.compact-look{
+  grid-template-columns: repeat(auto-fit, minmax(320px, 420px));
+  justify-content: center;            /* center the columns */
+}
 
-    /* Compact look for Other Services */
-    .packages.compact-look{
-      grid-template-columns: repeat(auto-fit, minmax(320px, 420px));
-      justify-content: center;
-    }
-    .packages.compact-look .card{
-      width: 100%;
-      max-width: 420px;
-      min-height: auto;
-    }
-    .packages.compact-look .card ul{ gap: .45rem; }
+.packages.compact-look .card{
+  width: 100%;
+  max-width: 420px;                   /* prevents super-wide cards */
+  min-height: auto;                   /* avoid extra empty space */
+}
+
+/* (optional) slightly tighten list spacing like mobile */
+.packages.compact-look .card ul{ gap: .45rem; }
+    
+    footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem 1rem;margin-top:2rem;}
   </style>
 </head>
 <body>
@@ -167,17 +170,56 @@
   <!-- Packages -->
   <section class="section" id="packages">
     <h2>Planning Packages</h2>
-    <div class="packages">
-      <!-- Your main packages cards go here -->
+    <div class="packages compact-look">
+    <article class="card">
+        <h3>From If to When</h3>
+        <span class="tag">Full Event Planning & Coordination</span>
+        <ul>
+          <li>2 consultations</li>
+          <li>Moodboard &amp; theming help</li>
+          <li>Vendor sourcing &amp; recommendations</li>
+          <li>Vendor confirmations</li>
+          <li>Timeline creation &amp; review</li>
+          <li>Day-of coordination</li>
+        </ul>
+        <div class="price">$850</div>
+        <a class="btn" href="contact.html">Inquire</a>
+      </article>
+
+      <article class="card">
+        <h3>The When</h3>
+        <span class="tag">Day-Of Coordination</span>
+        <ul>
+          <li>1 consultation</li>
+          <li>Timeline review</li>
+          <li>Vendor confirmations</li>
+          <li>Day-of coordination (8 hrs on-site)</li>
+        </ul>
+        <div class="price">$400</div>
+        <a class="btn" href="contact.html">Inquire</a>
+      </article>
+
+      <article class="card">
+        <h3>The If</h3>
+        <span class="tag">Planning & Logistics Only</span>
+        <ul>
+          <li>1 consultation</li>
+          <li>Event timeline review</li>
+          <li>Vendor recommendations</li>
+          <li>Email/text support</li>
+        </ul>
+        <div class="price">$250</div>
+        <a class="btn" href="contact.html">Inquire</a>
+      </article>
     </div>
   </section>
 
-  <!-- Smaller Packages -->
+  <!-- Other Packages -->
   <section class="section">
-    <h2>Other Services</h2>
+    <h2>Additional Services</h2>
     <div class="packages compact-look">
+    <div class="packages">
       <article class="card">
-        <span class="tag">Styling</span>
         <h3>The Details – Decor &amp; Styling</h3>
         <ul>
           <li>1 consultation</li>
@@ -189,7 +231,6 @@
       </article>
 
       <article class="card">
-        <span class="tag">Teardown</span>
         <h3>The Wrap-Up – Teardown Services</h3>
         <ul>
           <li>2 hours teardown &amp; packing</li>
@@ -211,6 +252,17 @@
       <span class="chip">Custom Signage Design — $120</span>
       <span class="chip">Seating Chart Assistance — $100</span>
       <span class="chip">Extra Setup/Teardown Hours — $30/hr</span>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section" id="process">
+    <h2>How We Work</h2>
+    <div class="process">
+      <div class="step"><div class="num">1</div><h4>Connect</h4><p>Share your vision, priorities, and must-haves in a relaxed consult.</p></div>
+      <div class="step"><div class="num">2</div><h4>Design</h4><p>We craft a balanced plan—creative direction + logistical clarity.</p></div>
+      <div class="step"><div class="num">3</div><h4>Coordinate</h4><p>Vendors, timelines, and details come together seamlessly.</p></div>
+      <div class="step"><div class="num">4</div><h4>Celebrate</h4><p>We run show-day so you can be present for every moment.</p></div>
     </div>
   </section>
 
@@ -238,3 +290,4 @@
   </script>
 </body>
 </html>
+
