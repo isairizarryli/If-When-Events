@@ -130,15 +130,6 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 420px));
   justify-content: center;            /* center the columns */
 }
-
-.packages.compact-look .card{
-  width: 100%;
-  max-width: 420px;                   /* prevents super-wide cards */
-  min-height: auto;                   /* avoid extra empty space */
-}
-
-/* (optional) slightly tighten list spacing like mobile */
-.packages.compact-look .card ul{ gap: .45rem; }
     
     footer{background:var(--forest);color:var(--silver);text-align:center;padding:2rem 1rem;margin-top:2rem;}
   </style>
@@ -169,12 +160,11 @@
 
   <!-- Packages -->
   <section class="section" id="packages">
-    <h2>Planning Packages</h2>
-    <div class="packages compact-look">
+    <h2>Planning Packages</h2>    
     <article class="card">
-        <h3>From If to When</h3>
-        <span class="tag">Full Event Planning & Coordination</span>
-        <ul>
+     <span class="tag"><em></em>Full Event Planning & Coordination</em></span> 
+      <h3>From If to When</h3>
+         <ul>
           <li>2 consultations</li>
           <li>Moodboard &amp; theming help</li>
           <li>Vendor sourcing &amp; recommendations</li>
@@ -187,8 +177,8 @@
       </article>
 
       <article class="card">
-        <h3>The When</h3>
-        <span class="tag">Day-Of Coordination</span>
+        <span class="tag"><em></em>Day-Of Coordination</em></span>
+        <h3>The When</h3>        
         <ul>
           <li>1 consultation</li>
           <li>Timeline review</li>
@@ -200,8 +190,8 @@
       </article>
 
       <article class="card">
-        <h3>The If</h3>
-        <span class="tag">Planning & Logistics Only</span>
+        <span class="tag"><em>Planning & Logistics Only</em></span>
+        <h3>The If</h3>        
         <ul>
           <li>1 consultation</li>
           <li>Event timeline review</li>
@@ -216,11 +206,11 @@
 
   <!-- Other Packages -->
   <section class="section">
-    <h2>Additional Services</h2>
-    <div class="packages compact-look">
+    <h2>Additional Services</h2>    
     <div class="packages">
       <article class="card">
-        <h3>The Details – Decor &amp; Styling</h3>
+        <span class="tag"><em>Decor & Styling</em></span>
+        <h3>The Details</h3>
         <ul>
           <li>1 consultation</li>
           <li>Moodboard &amp; theming help</li>
@@ -231,7 +221,8 @@
       </article>
 
       <article class="card">
-        <h3>The Wrap-Up – Teardown Services</h3>
+        <span class="tag"><em>Teardown Services</em></span>
+        <h3>The Wrap-Up</h3>
         <ul>
           <li>2 hours teardown &amp; packing</li>
           <li>Safe handling of rentals &amp; decor</li>
