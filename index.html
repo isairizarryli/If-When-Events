@@ -40,9 +40,11 @@
     a{text-decoration:none}
 
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-2)}
-    h1{font-size:clamp(2.4rem,6vw,4rem)}
-    h2{font-size:clamp(1.8rem,3.8vw,2.5rem)}
-    h3{font-size:clamp(1.25rem,2.4vw,1.6rem)}
+
+    /* overall heading sizes — smaller now */
+    h1{font-size:clamp(1.9rem, 3vw, 2.6rem);}
+    h2{font-size:clamp(1.4rem, 2.4vw, 2rem);}
+    h3{font-size:clamp(1.1rem, 1.9vw, 1.35rem);}
 
     /* Skip link for accessibility */
     .skip-link{
@@ -59,24 +61,6 @@
       top:1rem;
     }
 
-    /* ===== Brand banner (large company name) ===== */
-    .brand-banner{
-      background: var(--forest);
-      color: var(--silver);
-      text-align:center;
-      padding: clamp(1.25rem, 3vw, 2rem) 1rem;
-    }
-    .brand-banner .brand-text{
-      font-family:var(--font-heading);
-      font-weight:700;
-      letter-spacing:.5px;
-      line-height:1.05;
-    }
-    /* Hide big banner on phones so header isn’t duplicated */
-    @media (max-width:900px){
-      .brand-banner{ display:none; }
-    }
-
     /* ===== Header / Nav ===== */
     header{
       background:var(--forest);
@@ -91,19 +75,20 @@
       display:flex;
       align-items:center;
       justify-content:space-between;
-      padding:0.75rem 1.25rem;
+      padding:0.7rem 1.25rem;
     }
     .brand-link{
       font-family:var(--font-heading);
-      font-size:1.9rem;
+      font-size:1.4rem;
       color:var(--silver);
       letter-spacing:.5px;
     }
     .nav-links{
       display:flex;
-      gap:2rem;
+      gap:1.5rem;
       align-items:center;
       margin-left:auto;
+      font-size:0.95rem;
     }
     .nav-links a{
       color:var(--silver);
@@ -126,7 +111,7 @@
       background:transparent;
       border:0;
       color:var(--silver);
-      font-size:1.75rem;
+      font-size:1.6rem;
       cursor:pointer;
     }
     @media (max-width:900px){
@@ -146,22 +131,16 @@
         z-index:1000;
       }
       .nav-links.open{ transform:translateX(0); }
-      .nav-links a{ border-bottom:0; font-size:1.1rem; }
-    }
-
-    /* Desktop: hide small brand, right-align links; show banner */
-    @media (min-width: 901px){
-      .brand-link{ display:none; }
-      .nav{ justify-content:flex-end; }
+      .nav-links a{ border-bottom:0; font-size:1rem; }
     }
 
     /* ===== Global section spacing ===== */
     section{
-      padding-block:var(--s-4);
+      padding-block:var(--s-3);
     }
     @media (min-width:900px){
       section{
-        padding-block:var(--s-5);
+        padding-block:2.5rem;
       }
     }
 
@@ -179,34 +158,37 @@
       gap:var(--s-2);
       justify-items:center;
       text-align:center;
+      padding-block:var(--s-4);
     }
     .kicker{
       font-family:var(--font-accent);
       color:var(--olive);
-      font-size:clamp(1.4rem,3vw,2rem);
+      font-size:clamp(1.2rem, 2.2vw, 1.6rem);
     }
     .hero h1{
       font-family:var(--font-heading);
       color:var(--forest);
-      margin-top:.35rem;
-      margin-bottom:.75rem;
+      margin-top:.25rem;
+      margin-bottom:.5rem;
+      max-width: 42rem;
     }
     .hero p.lead{
-      max-width:720px;
-      font-size:1.125rem;
+      max-width:600px;
+      font-size:1rem;
       color:var(--forest);
-      margin-bottom:1.25rem;
+      margin-bottom:1rem;
     }
     .btn{
       display:inline-block;
       background:var(--gold);
       color:var(--forest);
-      padding:.8rem 1.3rem;
+      padding:.7rem 1.2rem;
       border-radius:8px;
       font-weight:600;
       border:none;
       transition: background .2s,color .2s, box-shadow .2s;
       cursor:pointer;
+      font-size:0.95rem;
     }
     .btn:hover{
       background:var(--silver);
@@ -228,10 +210,10 @@
     }
     .hero-cta{
       display:flex;
-      gap:1rem;
+      gap:0.75rem;
       flex-wrap:wrap;
       justify-content:center;
-      margin-top:.5rem;
+      margin-top:.25rem;
     }
 
     /* ===== Values ===== */
@@ -239,7 +221,7 @@
     .value-grid{
       display:grid;
       grid-template-columns:1fr;
-      gap:var(--s-3);
+      gap:var(--s-2);
     }
     @media(min-width:900px){
       .value-grid{
@@ -251,27 +233,25 @@
       background:var(--cream);
       border:1px solid rgba(0,0,0,.06);
       border-radius:var(--radius);
-      padding:1.75rem 1.5rem;
+      padding:1.5rem 1.25rem;
       text-align:center;
       box-shadow: var(--shadow-1);
       transition: transform .2s, box-shadow .2s;
+      font-size:0.95rem;
     }
     .value-card:hover{
       transform: translateY(-3px);
       box-shadow:var(--shadow-2);
     }
     .value-icon{
-      font-size:2rem;
+      font-size:1.6rem;
       color:var(--gold);
-      margin-bottom:.4rem;
+      margin-bottom:.3rem;
     }
     .value-card h3{
       font-family:var(--font-heading);
       color:var(--forest);
-      margin-bottom:.25rem;
-    }
-    .value-card p{
-      margin-top:0.35rem;
+      margin-bottom:.15rem;
     }
 
     /* ===== Services ===== */
@@ -280,14 +260,14 @@
     }
     .services h2{
       text-align:center;
-      margin-bottom: var(--s-3);
+      margin-bottom: var(--s-2);
       color:var(--forest);
       font-family:var(--font-heading);
     }
     .service-grid{
       display:grid;
       grid-template-columns:1fr;
-      gap:var(--s-3);
+      gap:var(--s-2);
     }
     @media(min-width:900px){
       .service-grid{
@@ -299,9 +279,10 @@
       background:var(--olive);
       color:var(--cream);
       border-radius:var(--radius);
-      padding:1.75rem 1.5rem;
+      padding:1.5rem 1.25rem;
       box-shadow:var(--shadow-1);
       transition: transform .2s, box-shadow .2s, background .2s;
+      font-size:0.95rem;
     }
     .service-card:hover{
       transform: translateY(-3px);
@@ -309,13 +290,10 @@
     }
     .service-card h3{
       font-family:var(--font-heading);
-      margin-bottom:.3rem;
-    }
-    .service-card p{
-      margin-top:0.35rem;
+      margin-bottom:.25rem;
     }
     .service-actions{
-      margin-top:1rem;
+      margin-top:0.75rem;
     }
     .service-actions .btn{
       background:var(--gold);
@@ -335,15 +313,16 @@
       background: var(--gold);
       color: var(--forest);
       text-align:center;
-      padding-block:var(--s-4);
+      padding-block:var(--s-3);
       padding-inline:var(--s-2);
+      font-size:0.98rem;
     }
     .cta h2{
       font-family:var(--font-heading);
-      margin-bottom:.6rem;
+      margin-bottom:.4rem;
     }
     .cta p{
-      margin-top:0.25rem;
+      margin-top:0.2rem;
     }
     .cta .btn{
       background:var(--forest);
@@ -359,10 +338,10 @@
       background:var(--forest);
       color:var(--silver);
       text-align:center;
-      padding-block:1.5rem;
+      padding-block:1.2rem;
       padding-inline:var(--s-2);
       margin-top:0;
-      font-size:0.95rem;
+      font-size:0.9rem;
     }
     footer a{
       color:inherit;
@@ -375,13 +354,6 @@
 <body>
 
   <a href="#main" class="skip-link">Skip to main content</a>
-
-  <!-- Big brand banner (desktop only) -->
-  <div class="brand-banner">
-    <div class="container">
-      <p class="brand-text" aria-hidden="true">If/When Events</p>
-    </div>
-  </div>
 
   <!-- Header / Nav -->
   <header>
@@ -471,7 +443,7 @@
       <div class="container">
         <h2>Ready to plan your moment?</h2>
         <p>Tell us your “if”—we’ll plan the “when.”</p>
-        <div style="margin-top:1rem">
+        <div style="margin-top:0.75rem">
           <a href="contact.html" class="btn">Let’s Chat</a>
         </div>
       </div>
