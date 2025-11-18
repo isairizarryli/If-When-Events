@@ -41,7 +41,6 @@
 
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-2)}
 
-    /* global heading sizes */
     h1{font-size:clamp(1.9rem, 3vw, 2.6rem);}
     h2{font-size:clamp(1.4rem, 2.4vw, 2rem);}
     h3{font-size:clamp(1.1rem, 1.9vw, 1.35rem);}
@@ -61,7 +60,7 @@
       top:1rem;
     }
 
-    /* ===== Header / Nav ===== */
+    /* ===== Header ===== */
     header{
       background:var(--forest);
       color:var(--silver);
@@ -81,12 +80,10 @@
       font-family:var(--font-heading);
       font-size:1.4rem;
       color:var(--silver);
-      letter-spacing:.5px;
     }
     .nav-links{
       display:flex;
       gap:1.5rem;
-      align-items:center;
       margin-left:auto;
       font-size:0.95rem;
     }
@@ -105,7 +102,6 @@
       border-bottom-color:transparent;
     }
 
-    /* Mobile menu */
     .hamburger{
       display:none;
       background:transparent;
@@ -123,50 +119,33 @@
         background:#4A4A4AE6;
         backdrop-filter:blur(6px);
         flex-direction:column;
-        align-items:flex-start;
         padding:5rem 1.5rem 2rem;
         gap:1.25rem;
         transform:translateX(100%);
         transition:transform .3s ease;
-        z-index:1000;
       }
       .nav-links.open{ transform:translateX(0); }
-      .nav-links a{ border-bottom:0; font-size:1rem; }
     }
 
     /* ===== Section spacing ===== */
     section{
       padding-block:var(--s-3);
     }
-    @media (min-width:900px){
-      section{
-        padding-block:2.5rem;
-      }
-    }
 
     /* ===== HERO ===== */
     .hero{
-      position:relative;
-      overflow:hidden;
       background:
         radial-gradient(1200px 600px at 100% -10%, rgba(203,178,106,.10), transparent 60%),
         radial-gradient(800px 400px at -10% 100%, rgba(188,205,179,.25), transparent 55%),
         linear-gradient(180deg, var(--cream), var(--eucalyptus) 55%, var(--cream));
     }
 
-    /* ⭐ NEW Tighter hero spacing ⭐ */
     .hero .container{
       display:grid;
-      gap:0.75rem;
       justify-items:center;
       text-align:center;
+      gap:0.75rem;
       padding-block:1.75rem;
-    }
-
-    @media (min-width:900px){
-      .hero .container{
-        padding-block:2rem; /* Was much larger */
-      }
     }
 
     .kicker{
@@ -175,22 +154,30 @@
       font-size:clamp(1.2rem, 2.2vw, 1.6rem);
     }
 
-    /* Smaller hero heading */
-    .hero h1{
+    /* ⭐ NEW BIGGER TITLE ⭐ */
+    .hero-title{
       font-family:var(--font-heading);
       color:var(--forest);
-      margin-top:.1rem;
-      margin-bottom:.35rem;
-      font-size:clamp(1.7rem, 2.3vw, 2.2rem);
-      max-width: 42rem;
+      font-size:clamp(2.4rem, 4.5vw, 3.3rem);
+      margin-top:0.2rem;
+      margin-bottom:0.35rem;
+      line-height:1.12;
     }
 
-    /* Tighter lead paragraph */
-    .hero p.lead{
+    .hero-subtitle{
+      font-family:var(--font-heading);
+      font-weight:400;
+      color:var(--forest);
+      font-size:clamp(1.2rem, 2.2vw, 1.55rem);
+      margin-bottom:0.5rem;
+      max-width:750px;
+    }
+
+    .lead{
       max-width:600px;
       font-size:1rem;
-      color:var(--forest);
       margin-bottom:0.75rem;
+      color:var(--forest);
     }
 
     .btn{
@@ -202,7 +189,8 @@
       font-weight:600;
       border:none;
       font-size:0.95rem;
-      transition:background .2s,color .2s;
+      cursor:pointer;
+      transition:.2s;
     }
     .btn:hover{
       background:var(--silver);
@@ -211,128 +199,43 @@
     .btn-outline{
       background:transparent;
       border:2px solid var(--gold);
-      color:var(--forest);
-    }
-    .btn-outline:hover{
-      background:var(--silver);
-      border-color:var(--silver);
-      color:var(--charcoal);
     }
 
-    .hero-cta{
-      display:flex;
-      gap:0.75rem;
-      flex-wrap:wrap;
-      justify-content:center;
-      margin-top:.25rem;
-    }
+    .values{ padding-top:1.5rem; }
 
-    /* Pull Values closer to the hero */
-    .values{
-      padding-top:1.5rem;
-    }
-
-    /* ===== VALUES ===== */
     .value-grid{
       display:grid;
-      grid-template-columns:1fr;
       gap:var(--s-2);
     }
     @media(min-width:900px){
-      .value-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:var(--s-2);
-      }
+      .value-grid{ grid-template-columns:repeat(3,1fr); }
     }
+
     .value-card{
       background:var(--cream);
-      border:1px solid rgba(0,0,0,.06);
-      border-radius:var(--radius);
       padding:1.5rem 1.25rem;
+      border-radius:var(--radius);
+      box-shadow:var(--shadow-1);
       text-align:center;
-      box-shadow: var(--shadow-1);
-      font-size:0.95rem;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .value-card:hover{
-      transform: translateY(-3px);
-      box-shadow:var(--shadow-2);
-    }
-    .value-icon{
-      font-size:1.6rem;
-      color:var(--gold);
-      margin-bottom:.3rem;
-    }
-    .value-card h3{
-      font-family:var(--font-heading);
-      color:var(--forest);
-      margin-bottom:.15rem;
     }
 
     /* ===== SERVICES ===== */
     .services{
       background: linear-gradient(180deg, var(--cream), var(--taupe));
     }
-    .services h2{
-      text-align:center;
-      margin-bottom: var(--s-2);
-      color:var(--forest);
-      font-family:var(--font-heading);
-    }
-    .service-grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:var(--s-2);
-    }
-    @media(min-width:900px){
-      .service-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:var(--s-2);
-      }
-    }
-    .service-card{
-      background:var(--olive);
-      color:var(--cream);
-      border-radius:var(--radius);
-      padding:1.5rem 1.25rem;
-      box-shadow:var(--shadow-1);
-      font-size:0.95rem;
-      transition: transform .2s, box-shadow .2s;
-    }
-    .service-card:hover{
-      transform: translateY(-3px);
-      box-shadow:var(--shadow-2);
-    }
 
-    /* ===== CTA ===== */
+    /* ===== CTA & FOOTER ===== */
     .cta{
-      background: var(--gold);
-      color: var(--forest);
+      background:var(--gold);
+      color:var(--forest);
       text-align:center;
-      padding-block:var(--s-3);
-      padding-inline:var(--s-2);
-      font-size:0.98rem;
+      padding:var(--s-3);
     }
-    .cta h2{
-      font-family:var(--font-heading);
-      margin-bottom:.4rem;
-    }
-    .cta p{
-      margin-top:0.2rem;
-    }
-
-    /* Footer */
     footer{
       background:var(--forest);
       color:var(--silver);
       text-align:center;
-      padding-block:1.2rem;
-      padding-inline:var(--s-2);
-      font-size:0.9rem;
-    }
-    footer nav a{
-      margin:0 0.5rem;
-      color:inherit;
+      padding:1.2rem;
     }
   </style>
 </head>
@@ -340,14 +243,13 @@
 <body>
   <a href="#main" class="skip-link">Skip to main content</a>
 
-  <!-- Header / Nav -->
   <header>
     <div class="nav">
-      <a class="brand-link" href="index.html"</a>
+      <a class="brand-link" href="index.html">If/When Events</a>
 
-      <button class="hamburger" id="navToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+      <button class="hamburger" id="navToggle" aria-label="Open menu">☰</button>
 
-      <nav class="nav-links" id="navMenu" aria-label="Primary">
+      <nav class="nav-links" id="navMenu">
         <a href="index.html" aria-current="page">Home</a>
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
@@ -361,16 +263,24 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container">
+
         <div class="kicker">Taking your “ifs” to “whens.”</div>
 
-        <h1>If/When Events</h1>
+        <h1 class="hero-title">If/When Events</h1>
 
-        <p class="lead">Intentional event planning with heart, balance, and forever moments.</p>
+        <h2 class="hero-subtitle">
+          Intentional event planning with heart, balance, and forever moments.
+        </h2>
+
+        <p class="lead">
+          From weddings and showers to milestones and launches, we blend artistry and precision so your celebration feels effortless—and unforgettable.
+        </p>
 
         <div class="hero-cta">
           <a href="services.html" class="btn">Explore Our Services</a>
           <a href="contact.html" class="btn btn-outline">Get in Touch</a>
         </div>
+
       </div>
     </section>
 
@@ -406,39 +316,30 @@
           <div class="service-card">
             <h3>Weddings</h3>
             <p>Full-service planning, partial planning, and day-of coordination tailored to your style.</p>
-            <div class="service-actions">
-              <a class="btn" href="services.html#weddings">See Wedding Services</a>
-            </div>
+            <a class="btn" href="services.html#weddings">See Wedding Services</a>
           </div>
 
           <div class="service-card">
             <h3>Showers &amp; Celebrations</h3>
             <p>Bridal &amp; baby showers, birthdays, anniversaries—sweet, stylish, stress-free.</p>
-            <div class="service-actions">
-              <a class="btn" href="services.html#celebrations">Explore Celebrations</a>
-            </div>
+            <a class="btn" href="services.html#celebrations">Explore Celebrations</a>
           </div>
 
           <div class="service-card">
             <h3>Corporate &amp; Launches</h3>
-            <p>Openings, brand activations, and team events that feel seamless and on-brand.</p>
-            <div class="service-actions">
-              <a class="btn" href="services.html#corporate">View Corporate</a>
-            </div>
+            <p>Openings, activations, and team events that feel seamless and on-brand.</p>
+            <a class="btn" href="services.html#corporate">View Corporate</a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- FINAL CTA -->
+    <!-- CTA -->
     <section class="cta">
       <div class="container">
         <h2>Ready to plan your moment?</h2>
         <p>Tell us your “if”—we’ll plan the “when.”</p>
-
-        <div style="margin-top:0.75rem">
-          <a href="contact.html" class="btn">Let’s Chat</a>
-        </div>
+        <a href="contact.html" class="btn">Let’s Chat</a>
       </div>
     </section>
 
@@ -446,31 +347,27 @@
 
   <footer>
     <p>If/When Events</p>
-    <p>Email: <a href="mailto:ifwhen.events@gmail.com">ifwhen.events@gmail.com</a></p>
+    <p>Email: <a href="mailto:ifwhen.events@gmail.com" style="color:inherit;">ifwhen.events@gmail.com</a></p>
+
     <nav>
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
+      <a href="index.html" style="color:inherit;">Home</a>
+      <a href="services.html" style="color:inherit;">Services</a>
+      <a href="contact.html" style="color:inherit;">Contact</a>
     </nav>
   </footer>
 
   <script>
     const toggle = document.getElementById('navToggle');
-    const menu   = document.getElementById('navMenu');
+    const menu = document.getElementById('navMenu');
 
-    if (toggle && menu){
-      toggle.addEventListener('click', ()=>{
-        const open = menu.classList.toggle('open');
-        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-      });
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('open');
+    });
 
-      menu.querySelectorAll('a').forEach(link=>{
-        link.addEventListener('click', ()=>{
-          menu.classList.remove('open');
-          toggle.setAttribute('aria-expanded', 'false');
-        });
-      });
-    }
+    menu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => menu.classList.remove('open'));
+    });
   </script>
+
 </body>
 </html>
